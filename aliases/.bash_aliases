@@ -27,10 +27,10 @@ alias pa='php artisan'
 #alias puf='phpunit --testdox --filter'
 #alias pui='phpunit --group integration --testdox'
 #alias puif='phpunit --group integration --testdox --filter'
-alias pu='phpunit'
-alias puf='phpunit --filter'
-alias pui='phpunit --group integration'
-alias puif='phpunit --group integration --filter'
+alias pu='./vendor/bin/phpunit'
+alias puf='./vendor/bin/phpunit --filter'
+alias pui='./vendor/bin/phpunit --group integration'
+alias puif='./vendor/bin/phpunit --group integration --filter'
 
 # =====================================
 # npm
@@ -105,3 +105,6 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 # line wrapping in terminal
 alias nowrap="printf '\033[?7l'"
 alias wrap="printf '\033[?7h'"
+
+# fd - https://github.com/sharkdp/fd
+alias fd='fdfind'

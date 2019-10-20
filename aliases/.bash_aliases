@@ -116,17 +116,17 @@ alias qbeep4="play -q -n synth 0.1 sin 1200 vol 0.1"
 alias qbeep5="play -q -n synth 0.1 sin 1400 vol 0.1"
 alias qbeep6="play -q -n synth 0.1 sin 1600 vol 0.1"
 
-alias qsay="spd-say -i -80"
-alias qpsay="spd-say -l pl -i -80"
-alias qfsay="spd-say -r +60 -i -80"
+alias qsay="spd-say -wi -80"
+alias qpsay="spd-say -wl pl -i -80"
+alias qfsay="spd-say -wr +60 -i -80"
 
-alias say="spd-say -i -30" # say "get back to work"
-alias psay="spd-say -l pl -i -30" # psay "wracaj do pracy"
-alias fsay="spd-say -r +60 -i -30"
+alias say="spd-say -wi -30" # say "get back to work"
+alias psay="spd-say -wl pl -i -30" # psay "wracaj do pracy"
+alias fsay="spd-say -wr +60 -i -30"
 
 alias lsay="spd-say"
-alias lpsay="spd-say -l pl"
-alias lfsay="spd-say -r +60"
+alias lpsay="spd-say -wl pl"
+alias lfsay="spd-say -wr +60"
 
 alias pop="notify-send" # pop "my notification text"
 

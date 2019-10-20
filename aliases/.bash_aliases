@@ -101,12 +101,14 @@ alias lbeep3="play -q -n synth 0.1 sin 1000"
 alias lbeep4="play -q -n synth 0.1 sin 1200"
 alias lbeep5="play -q -n synth 0.1 sin 1400"
 alias lbeep6="play -q -n synth 0.1 sin 1600"
+
 alias beep1="play -q -n synth 0.1 sin 600 vol 0.5"
 alias beep2="play -q -n synth 0.1 sin 800 vol 0.5"
 alias beep3="play -q -n synth 0.1 sin 1000 vol 0.5"
 alias beep4="play -q -n synth 0.1 sin 1200 vol 0.5"
 alias beep5="play -q -n synth 0.1 sin 1400 vol 0.5"
 alias beep6="play -q -n synth 0.1 sin 1600 vol 0.5"
+
 alias qbeep1="play -q -n synth 0.1 sin 600 vol 0.1"
 alias qbeep2="play -q -n synth 0.1 sin 800 vol 0.1"
 alias qbeep3="play -q -n synth 0.1 sin 1000 vol 0.1"
@@ -114,9 +116,17 @@ alias qbeep4="play -q -n synth 0.1 sin 1200 vol 0.1"
 alias qbeep5="play -q -n synth 0.1 sin 1400 vol 0.1"
 alias qbeep6="play -q -n synth 0.1 sin 1600 vol 0.1"
 
-alias say="spd-say" # say "get back to work"
-alias psay="spd-say -l pl" # psay "wracaj do pracy"
-alias fsay="spd-say -r +60"
+alias qsay="spd-say -i -80"
+alias qpsay="spd-say -l pl -i -80"
+alias qfsay="spd-say -r +60 -i -80"
+
+alias say="spd-say -i -30" # say "get back to work"
+alias psay="spd-say -l pl -i -30" # psay "wracaj do pracy"
+alias fsay="spd-say -r +60 -i -30"
+
+alias lsay="spd-say"
+alias lpsay="spd-say -l pl"
+alias lfsay="spd-say -r +60"
 
 alias pop="notify-send" # pop "my notification text"
 

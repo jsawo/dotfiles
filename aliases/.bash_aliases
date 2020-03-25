@@ -29,6 +29,7 @@ alias pa='php artisan'
 #alias puif='phpunit --group integration --testdox --filter'
 alias pu='./vendor/bin/phpunit'
 alias puf='./vendor/bin/phpunit --filter'
+alias pug='./vendor/bin/phpunit --group'
 alias pui='./vendor/bin/phpunit --group integration'
 alias puif='./vendor/bin/phpunit --group integration --filter'
 
@@ -88,7 +89,6 @@ alias gstb="git stash branch"
 alias gstd="git stash drop"
 alias gstl="git stash list"
 alias gstp="git stash pop"
-alias gh='cd "$(git rev-parse --show-toplevel)"'
 # Show untracked files
 alias gu='git ls-files . --exclude-standard --others'
 

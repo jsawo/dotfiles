@@ -28,7 +28,9 @@ alias pa='php artisan'
 #alias pui='phpunit --group integration --testdox'
 #alias puif='phpunit --group integration --testdox --filter'
 alias pu='./vendor/bin/phpunit'
+alias pucc='./vendor/bin/phpunit --coverage-html build/coverage-report'
 alias puf='./vendor/bin/phpunit --filter'
+alias pufcc='./vendor/bin/phpunit --coverage-html build/coverage-report --filter'
 alias pug='./vendor/bin/phpunit --group'
 alias pui='./vendor/bin/phpunit --group integration'
 alias puif='./vendor/bin/phpunit --group integration --filter'
@@ -95,26 +97,26 @@ alias gu='git ls-files . --exclude-standard --others'
 # =====================================
 # sounds and notifications
 #
-alias lbeep1="play -q -n synth 0.1 sin 600"
-alias lbeep2="play -q -n synth 0.1 sin 800"
-alias lbeep3="play -q -n synth 0.1 sin 1000"
-alias lbeep4="play -q -n synth 0.1 sin 1200"
-alias lbeep5="play -q -n synth 0.1 sin 1400"
-alias lbeep6="play -q -n synth 0.1 sin 1600"
+alias lbeep1="play -qn -t alsa synth 0.1 sin 600"
+alias lbeep2="play -qn -t alsa synth 0.1 sin 800"
+alias lbeep3="play -qn -t alsa synth 0.1 sin 1000"
+alias lbeep4="play -qn -t alsa synth 0.1 sin 1200"
+alias lbeep5="play -qn -t alsa synth 0.1 sin 1400"
+alias lbeep6="play -qn -t alsa synth 0.1 sin 1600"
 
-alias beep1="play -q -n synth 0.1 sin 600 vol 0.5"
-alias beep2="play -q -n synth 0.1 sin 800 vol 0.5"
-alias beep3="play -q -n synth 0.1 sin 1000 vol 0.5"
-alias beep4="play -q -n synth 0.1 sin 1200 vol 0.5"
-alias beep5="play -q -n synth 0.1 sin 1400 vol 0.5"
-alias beep6="play -q -n synth 0.1 sin 1600 vol 0.5"
+alias beep1="play -qn -t alsa synth 0.1 sin 600 vol 0.5"
+alias beep2="play -qn -t alsa synth 0.1 sin 800 vol 0.5"
+alias beep3="play -qn -t alsa synth 0.1 sin 1000 vol 0.5"
+alias beep4="play -qn -t alsa synth 0.1 sin 1200 vol 0.5"
+alias beep5="play -qn -t alsa synth 0.1 sin 1400 vol 0.5"
+alias beep6="play -qn -t alsa synth 0.1 sin 1600 vol 0.5"
 
-alias qbeep1="play -q -n synth 0.1 sin 600 vol 0.1"
-alias qbeep2="play -q -n synth 0.1 sin 800 vol 0.1"
-alias qbeep3="play -q -n synth 0.1 sin 1000 vol 0.1"
-alias qbeep4="play -q -n synth 0.1 sin 1200 vol 0.1"
-alias qbeep5="play -q -n synth 0.1 sin 1400 vol 0.1"
-alias qbeep6="play -q -n synth 0.1 sin 1600 vol 0.1"
+alias qbeep1="play -qn -t alsa synth 0.1 sin 600 vol 0.1"
+alias qbeep2="play -qn -t alsa synth 0.1 sin 800 vol 0.1"
+alias qbeep3="play -qn -t alsa synth 0.1 sin 1000 vol 0.1"
+alias qbeep4="play -qn -t alsa synth 0.1 sin 1200 vol 0.1"
+alias qbeep5="play -qn -t alsa synth 0.1 sin 1400 vol 0.1"
+alias qbeep6="play -qn -t alsa synth 0.1 sin 1600 vol 0.1"
 
 alias qsay="spd-say -wi -80"
 alias qpsay="spd-say -wl pl -i -80"
@@ -149,3 +151,5 @@ alias wrap="printf '\033[?7h'"
 
 # fd - https://github.com/sharkdp/fd
 alias fd='fdfind'
+
+alias phpstan='sudo docker run -v $PWD:/app --rm phpstan/phpstan'

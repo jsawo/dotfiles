@@ -118,22 +118,22 @@ alias qbeep4="play -qn -t alsa synth 0.1 sin 1200 vol 0.1"
 alias qbeep5="play -qn -t alsa synth 0.1 sin 1400 vol 0.1"
 alias qbeep6="play -qn -t alsa synth 0.1 sin 1600 vol 0.1"
 
-alias qsay="spd-say -wi -80"
+alias qsay="spd-say -wl en -i -80"
 alias qpsay="spd-say -wl pl -i -80"
-alias qfsay="spd-say -wr +60 -i -80"
+alias qfsay="spd-say -wr +60 -l en -i -80"
 
-alias say="spd-say -wi -30" # say "get back to work"
+alias say="spd-say -wl en -i -30" # say "get back to work"
 alias psay="spd-say -wl pl -i -30" # psay "wracaj do pracy"
-alias fsay="spd-say -wr +60 -i -30"
+alias fsay="spd-say -wr +60 -l en -i -30"
 
-alias lsay="spd-say"
+alias lsay="spd-say -wl en"
 alias lpsay="spd-say -wl pl"
-alias lfsay="spd-say -wr +60"
+alias lfsay="spd-say -wr +60 -l en"
 
 alias pop="notify-send" # pop "my notification text"
 
 # use: super-slow-command;b
-b() ( spd-say 'done'; zenity --info --width=550 --text "$(date);$(pwd)" & )
+b() ( spd-say -wl en 'done'; zenity --info --width=550 --text "$(date); $(pwd)" & )
 
 # =====================================
 # other stuff
@@ -148,8 +148,5 @@ alias did="vim +'normal Go' +'r!date' ~/did.txt"
 # line wrapping in terminal
 alias nowrap="printf '\033[?7l'"
 alias wrap="printf '\033[?7h'"
-
-# fd - https://github.com/sharkdp/fd
-alias fd='fdfind'
 
 alias phpstan='sudo docker run -v $PWD:/app --rm phpstan/phpstan'

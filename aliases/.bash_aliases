@@ -138,8 +138,8 @@ b() ( spd-say -wl en 'done'; zenity --info --width=550 --text "$(date); $(pwd)" 
 # =====================================
 # other stuff
 #
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# Add an "alert" alias for long running commands
+#  use: sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # opens a log file, ready for edits, with a current date
@@ -150,3 +150,7 @@ alias nowrap="printf '\033[?7l'"
 alias wrap="printf '\033[?7h'"
 
 alias phpstan='sudo docker run -v $PWD:/app --rm phpstan/phpstan'
+
+# quickly check if a given port is being used
+#  use: port 80
+port() ( sudo lsof -i -P -n | grep ":$1 (LISTEN)" )

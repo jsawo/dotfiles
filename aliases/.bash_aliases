@@ -153,5 +153,5 @@ alias phpstan='sudo docker run -v $PWD:/app --rm phpstan/phpstan'
 
 # quickly check if a given port is being used
 #  use: port 80
-port() ( sudo lsof -i -P -n | grep ":$1 (LISTEN)" )
-alias ports="sudo lsof -i -P -n | grep LISTEN"
+port() ( netstat -tulpn | grep ":$1" | grep LISTEN )
+alias ports="netstat -tulpn | grep LISTEN"

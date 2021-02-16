@@ -1,0 +1,27 @@
+[color]
+    ui = auto
+[core]
+    editor = vim
+    pager = delta
+[diff]
+    tool = vimdiff
+[fetch]
+    prune = true
+[help]
+    autocorrect = 10
+[include]
+    path = ~/.gitconfig_local
+[push]
+    default = current
+[rerere]
+    enabled = true
+[merge]
+    conflictstyle = diff3
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    line-numbers = true
+    plus-style = "syntax #2A363B"
+    plus-emph-style = "syntax #2D4E45"
+    minus-style = "syntax #3B2C37"
+    minus-emph-style = "syntax #613038"

@@ -3,6 +3,7 @@
 [core]
     editor = vim
     pager = delta
+    excludesfile = ~/.gitignore_global
 [diff]
     tool = vimdiff
 [fetch]

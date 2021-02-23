@@ -14,10 +14,24 @@
             ls -F --color=auto # use your preferred ls command
     }
 
+    alias v="nvim"
+    alias vim="nvim"
+    alias mux="tmuxinator"
+    alias cat="bat"
+    alias lolcat="lolcat-c"
+
     alias copy="xclip -selection clipboard"
     alias paste="xclip -o -selection clipboard"
 
 # }}}
+
+# Default flags
+# ==============================================================================
+
+    alias df="df -h"
+
+# }}}
+
 
 # ls
 # ==============================================================================
@@ -34,15 +48,10 @@
 
 # }}}
 
-# artisan
+# php stuff
 # ==============================================================================
 
     alias pa='php artisan'
-
-# }}}
-
-# php testing
-# ==============================================================================
 
     #alias pu='phpunit --testdox'
     #alias puf='phpunit --testdox --filter'
@@ -185,6 +194,13 @@
 
 # }}}
 
+# KDE {{{
+# ==============================================================================
+
+    alias restart_plasma="kquitapp5 plasmashell && kstart5 plasmashell"
+
+# }}}
+
 # Trash (instead of rm) {{{
 # ==============================================================================
 
@@ -221,11 +237,5 @@
     open () {
         xdg-open $* > /dev/null 2>&1
     }
-
-    alias v="nvim"
-    alias vim="nvim"
-    alias mux="tmuxinator"
-    alias cat="bat"
-    alias lolcat="lolcat-c"
 
 # }}}

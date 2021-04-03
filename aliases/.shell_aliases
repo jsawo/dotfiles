@@ -1,4 +1,4 @@
-# General
+# General {{{
 # ==============================================================================
 
     alias ..='cd ..'
@@ -7,7 +7,7 @@
     # cd into a given directory and ls it's content
     function cl() {
         DIR="$*";
-        if [ $# -lt 1 ]; then 
+        if [ $# -lt 1 ]; then
             DIR=$HOME; # if no DIR given, go home
         fi;
         builtin cd "${DIR}" && \
@@ -25,7 +25,7 @@
 
 # }}}
 
-# Default flags
+# Default flags {{{
 # ==============================================================================
 
     alias df="df -h"
@@ -33,7 +33,7 @@
 # }}}
 
 
-# ls
+# ls {{{
 # ==============================================================================
 
     alias ll='ls -AlF'
@@ -48,7 +48,7 @@
 
 # }}}
 
-# php stuff
+# php stuff {{{
 # ==============================================================================
 
     alias pa='php artisan'
@@ -64,13 +64,19 @@
     alias pug='./vendor/bin/phpunit --group'
     alias pui='./vendor/bin/phpunit --group integration'
     alias puif='./vendor/bin/phpunit --group integration --filter'
+
     alias pe='./vendor/bin/pest'
     alias pef='./vendor/bin/pest --filter'
     alias pecc='./vendor/bin/pest --coverage'
 
+    alias sail='bash vendor/bin/sail'
+    alias s='bash vendor/bin/sail'
+    alias sa='bash vendor/bin/sail artisan'
+    alias sc='bash vendor/bin/sail composer'
+
 # }}}
 
-# npm
+# npm {{{
 # ==============================================================================
 
     alias nr='npm run'
@@ -84,7 +90,7 @@
 
 # }}}
 
-# Docker
+# Docker {{{
 # ==============================================================================
 
     alias d="docker"
@@ -99,7 +105,7 @@
 
 # }}}
 
-# git
+# git {{{
 # ==============================================================================
 
     # cd into the root of this repository
@@ -132,15 +138,6 @@
     alias gcob='git checkout -b'
     alias gct='git checkout --track'
     alias gcpd='git checkout master; git pull; git branch -D'
-    alias gl="git log"
-    alias gll='git log --graph --pretty=oneline --abbrev-commit'
-    alias gls="git shortlog"
-    alias gg="git log --graph --pretty=format:'%C(bold)%h%Creset%C(magenta)%d%Creset %s %C(yellow)<%an> %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
-    alias ggs="gg --stat"
-    alias gsl="git shortlog -sn"
-    alias gwc="git whatchanged"
-    # Show commits since last pull
-    alias gnew="git log HEAD@{1}..HEAD@{0}"
     alias gst="git stash"
     alias gstb="git stash branch"
     alias gstd="git stash drop"
@@ -149,9 +146,17 @@
     # Show untracked files
     alias gu='git ls-files . --exclude-standard --others'
 
+    alias gl="git log"
+    alias glp="git log -p"
+    alias gg="git log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%C(yellow)%d%Creset'"
+    alias ggs="gg --stat"
+    alias gwc="git whatchanged"
+    # Show commits since last pull
+    alias gnew="git log HEAD@{1}..HEAD@{0}"
+
 # }}}
 
-# Sounds and notifications
+# Sounds and notifications {{{
 # ==============================================================================
 
     alias lbeep1="play -qn -t alsa synth 0.1 sin 600"
@@ -192,6 +197,10 @@
     # use: super-slow-command;b
     b() ( spd-say -wl en 'done'; zenity --info --width=550 --text "$(date); $(pwd)" & )
 
+    # Add an "alert" alias for long running commands
+    #  use: sleep 10; alert
+    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # }}}
 
 # KDE {{{
@@ -214,10 +223,6 @@
 
 # Other stuff {{{
 # ==============================================================================
-
-    # Add an "alert" alias for long running commands
-    #  use: sleep 10; alert
-    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
     # line wrapping in terminal
     alias nowrap="printf '\033[?7l'"

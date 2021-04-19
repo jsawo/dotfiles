@@ -29,6 +29,7 @@
 # ==============================================================================
 
     alias df="df -h"
+    alias mkdir="mkdir -pv"
 
 # }}}
 
@@ -223,6 +224,11 @@
 
 # Other stuff {{{
 # ==============================================================================
+
+    alias path='echo -e ${PATH//:/\\n}'
+    alias now='date +"%T"'
+    alias nowtime=now
+    alias nowdate='date +"%d-%m-%Y"'
 
     # line wrapping in terminal
     alias nowrap="printf '\033[?7l'"

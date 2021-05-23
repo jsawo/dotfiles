@@ -243,8 +243,8 @@
 
     # quickly check if a given port is being used
     #  use: port 80
-    port() ( ss -tulpn | grep ":$1" | grep LISTEN )
-    alias ports="ss -tulpn | grep LISTEN"
+    port() ( ss -peanut | grep ":$1" | grep LISTEN )
+    alias ports="ss -peanut | grep LISTEN"
 
     open () {
         xdg-open $* > /dev/null 2>&1

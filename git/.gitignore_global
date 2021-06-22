@@ -4,3 +4,6 @@
 .ssh
 _ide_helper.php
 .tmuxinator.yml
+
+._dnc/
+

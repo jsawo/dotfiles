@@ -28,3 +28,5 @@
     plus-emph-style = "syntax #2D4E45"
     minus-style = "syntax #3B2C37"
     minus-emph-style = "syntax #613038"
+[commit]
+	gpgsign = true

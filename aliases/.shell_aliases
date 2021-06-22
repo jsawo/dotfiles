@@ -157,6 +157,16 @@
 
 # }}}
 
+# VirtualBox {{{
+# ==============================================================================
+
+    alias vbm="vboxmanage"
+    alias vbml="vboxmanage list"
+    alias vbmm="vboxmanage modifyvm"
+    alias vbms="vboxmanage showvminfo"
+
+# }}}
+
 # Sounds and notifications {{{
 # ==============================================================================
 

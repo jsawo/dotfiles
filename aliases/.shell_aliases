@@ -155,6 +155,21 @@
     # Show commits since last pull
     alias gnew="git log HEAD@{1}..HEAD@{0}"
 
+    # quickly setup a repo with git worktree
+    # see: https://infrequently.org/2021/07/worktrees-step-by-step/
+    gitclone () {
+        if [ $# -ne 2 ]; then
+            echo "Usage: gitclone url dirname"
+            return 1
+        fi
+
+        mkdir $2
+        cd $2
+        git clone --bare $1 .bare
+        echo "gitdir: ./.bare" > .git
+        git worktree add main
+    }
+
 # }}}
 
 # VirtualBox {{{

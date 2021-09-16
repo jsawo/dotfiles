@@ -11,25 +11,25 @@
             DIR=$HOME; # if no DIR given, go home
         fi;
         builtin cd "${DIR}" && \
-            ls -F --color=auto # use your preferred ls command
+            ll
     }
 
-    alias v="nvim"
-    alias vim="nvim"
-    alias mux="tmuxinator"
-    alias cat="bat"
-    alias lolcat="lolcat-c"
+    alias v='nvim'
+    alias vim='nvim'
+    alias mux='tmuxinator'
+    alias cat='bat'
+    alias lolcat='lolcat-c'
 
-    alias copy="xclip -selection clipboard"
-    alias paste="xclip -o -selection clipboard"
+    alias copy='xclip -selection clipboard'
+    alias paste='xclip -o -selection clipboard'
 
 # }}}
 
 # Default flags {{{
 # ==============================================================================
 
-    alias df="df -h"
-    alias mkdir="mkdir -pv"
+    alias df='df -h'
+    alias mkdir='mkdir -pv'
 
 # }}}
 
@@ -53,27 +53,31 @@
 # ==============================================================================
 
     alias pa='php artisan'
+    alias pat='php artisan tinker'
+    alias patt='while true; do php artisan tinker; done'
 
     #alias pu='phpunit --testdox'
     #alias puf='phpunit --testdox --filter'
     #alias pui='phpunit --group integration --testdox'
     #alias puif='phpunit --group integration --testdox --filter'
     alias pu='./vendor/bin/phpunit'
-    alias pucc='./vendor/bin/phpunit --coverage-html build/coverage-report'
+    alias puc='./vendor/bin/phpunit --coverage-html build/coverage-report'
     alias puf='./vendor/bin/phpunit --filter'
-    alias pufcc='./vendor/bin/phpunit --coverage-html build/coverage-report --filter'
+    alias pufc='./vendor/bin/phpunit --coverage-html build/coverage-report --filter'
     alias pug='./vendor/bin/phpunit --group'
     alias pui='./vendor/bin/phpunit --group integration'
     alias puif='./vendor/bin/phpunit --group integration --filter'
 
     alias pe='./vendor/bin/pest'
     alias pef='./vendor/bin/pest --filter'
-    alias pecc='./vendor/bin/pest --coverage'
+    alias pec='./vendor/bin/pest --coverage'
 
     alias sail='bash vendor/bin/sail'
     alias s='bash vendor/bin/sail'
     alias sa='bash vendor/bin/sail artisan'
     alias sc='bash vendor/bin/sail composer'
+    alias sat='bash vendor/bin/sail artisan tinker'
+    alias satt='while true; do bash vendor/bin/sail artisan tinker; done'
 
 # }}}
 
@@ -94,15 +98,17 @@
 # Docker {{{
 # ==============================================================================
 
-    alias d="docker"
-    alias dc="docker-compose"
-    alias dcu="docker-compose up"
-    alias dce="docker-compose exec"
-    alias dcea="docker-compose exec app"
+    alias d='docker'
+    alias dc='docker-compose'
+    alias dcu='docker-compose up'
+    alias dce='docker-compose exec'
+    alias dcea='docker-compose exec app'
     dceas () {
         docker-compose exec app su app -c "$*"
     }
-    alias dceasa="dceas php artisan"
+    alias dceasa='dceas php artisan'
+    alias dcr='docker-compose run'
+    alias dcrr='docker-compose run --rm -u "$(id -u):$(id -g)"'
 
 # }}}
 
@@ -147,13 +153,13 @@
     # Show untracked files
     alias gu='git ls-files . --exclude-standard --others'
 
-    alias gl="git log"
-    alias glp="git log -p"
+    alias gl='git log'
+    alias glp='git log -p'
     alias gg="git log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%C(yellow)%d%Creset'"
-    alias ggs="gg --stat"
-    alias gwc="git whatchanged"
+    alias ggs='gg --stat'
+    alias gwc='git whatchanged'
     # Show commits since last pull
-    alias gnew="git log HEAD@{1}..HEAD@{0}"
+    alias gnew='git log HEAD@{1}..HEAD@{0}'
 
     # quickly setup a repo with git worktree
     # see: https://infrequently.org/2021/07/worktrees-step-by-step/
@@ -175,50 +181,50 @@
 # VirtualBox {{{
 # ==============================================================================
 
-    alias vbm="vboxmanage"
-    alias vbml="vboxmanage list"
-    alias vbmm="vboxmanage modifyvm"
-    alias vbms="vboxmanage showvminfo"
+    alias vbm='vboxmanage'
+    alias vbml='vboxmanage list'
+    alias vbmm='vboxmanage modifyvm'
+    alias vbms='vboxmanage showvminfo'
 
 # }}}
 
 # Sounds and notifications {{{
 # ==============================================================================
 
-    alias lbeep1="play -qn -t alsa synth 0.1 sin 600"
-    alias lbeep2="play -qn -t alsa synth 0.1 sin 800"
-    alias lbeep3="play -qn -t alsa synth 0.1 sin 1000"
-    alias lbeep4="play -qn -t alsa synth 0.1 sin 1200"
-    alias lbeep5="play -qn -t alsa synth 0.1 sin 1400"
-    alias lbeep6="play -qn -t alsa synth 0.1 sin 1600"
+    alias lbeep1='play -qn -t alsa synth 0.1 sin 600'
+    alias lbeep2='play -qn -t alsa synth 0.1 sin 800'
+    alias lbeep3='play -qn -t alsa synth 0.1 sin 1000'
+    alias lbeep4='play -qn -t alsa synth 0.1 sin 1200'
+    alias lbeep5='play -qn -t alsa synth 0.1 sin 1400'
+    alias lbeep6='play -qn -t alsa synth 0.1 sin 1600'
 
-    alias beep1="play -qn -t alsa synth 0.1 sin 600 vol 0.5"
-    alias beep2="play -qn -t alsa synth 0.1 sin 800 vol 0.5"
-    alias beep3="play -qn -t alsa synth 0.1 sin 1000 vol 0.5"
-    alias beep4="play -qn -t alsa synth 0.1 sin 1200 vol 0.5"
-    alias beep5="play -qn -t alsa synth 0.1 sin 1400 vol 0.5"
-    alias beep6="play -qn -t alsa synth 0.1 sin 1600 vol 0.5"
+    alias beep1='play -qn -t alsa synth 0.1 sin 600 vol 0.5'
+    alias beep2='play -qn -t alsa synth 0.1 sin 800 vol 0.5'
+    alias beep3='play -qn -t alsa synth 0.1 sin 1000 vol 0.5'
+    alias beep4='play -qn -t alsa synth 0.1 sin 1200 vol 0.5'
+    alias beep5='play -qn -t alsa synth 0.1 sin 1400 vol 0.5'
+    alias beep6='play -qn -t alsa synth 0.1 sin 1600 vol 0.5'
 
-    alias qbeep1="play -qn -t alsa synth 0.1 sin 600 vol 0.1"
-    alias qbeep2="play -qn -t alsa synth 0.1 sin 800 vol 0.1"
-    alias qbeep3="play -qn -t alsa synth 0.1 sin 1000 vol 0.1"
-    alias qbeep4="play -qn -t alsa synth 0.1 sin 1200 vol 0.1"
-    alias qbeep5="play -qn -t alsa synth 0.1 sin 1400 vol 0.1"
-    alias qbeep6="play -qn -t alsa synth 0.1 sin 1600 vol 0.1"
+    alias qbeep1='play -qn -t alsa synth 0.1 sin 600 vol 0.1'
+    alias qbeep2='play -qn -t alsa synth 0.1 sin 800 vol 0.1'
+    alias qbeep3='play -qn -t alsa synth 0.1 sin 1000 vol 0.1'
+    alias qbeep4='play -qn -t alsa synth 0.1 sin 1200 vol 0.1'
+    alias qbeep5='play -qn -t alsa synth 0.1 sin 1400 vol 0.1'
+    alias qbeep6='play -qn -t alsa synth 0.1 sin 1600 vol 0.1'
 
-    alias qsay="spd-say -wl en -i -80"
-    alias qpsay="spd-say -wl pl -i -80"
-    alias qfsay="spd-say -wr +60 -l en -i -80"
+    alias qsay='spd-say -wl en -i -80'
+    alias qpsay='spd-say -wl pl -i -80'
+    alias qfsay='spd-say -wr +60 -l en -i -80'
 
-    alias say="spd-say -wl en -i -30" # say "get back to work"
-    alias psay="spd-say -wl pl -i -30" # psay "wracaj do pracy"
-    alias fsay="spd-say -wr +60 -l en -i -30"
+    alias say='spd-say -wl en -i -30" # say "get back to work'
+    alias psay='spd-say -wl pl -i -30" # psay "wracaj do pracy'
+    alias fsay='spd-say -wr +60 -l en -i -30'
 
-    alias lsay="spd-say -wl en"
-    alias lpsay="spd-say -wl pl"
-    alias lfsay="spd-say -wr +60 -l en"
+    alias lsay='spd-say -wl en'
+    alias lpsay='spd-say -wl pl'
+    alias lfsay='spd-say -wr +60 -l en'
 
-    alias pop="notify-send" # pop "my notification text"
+    alias pop='notify-send' # pop "my notification text"
 
     # use: super-slow-command;b
     b() ( spd-say -wl en 'done'; zenity --info --width=550 --text "$(date); $(pwd)" & )
@@ -232,18 +238,18 @@
 # KDE {{{
 # ==============================================================================
 
-    alias restart_plasma="kquitapp5 plasmashell && kstart5 plasmashell"
+    alias restart_plasma='kquitapp5 plasmashell && kstart5 plasmashell'
 
 # }}}
 
 # Trash (instead of rm) {{{
 # ==============================================================================
 
-    alias rrm="trash" # rrm FILENAME # move file to trash
-    alias rrml="trash-list" # show trashcan content
-    alias rrmr="trash-restore" # show trashed files in current folder and allow to restore them
-    alias rrmm="trash-rm" # rrmm PATTERN # remove files matching the PATTERN from trashcan
-    alias rrmc="trash-empty" # remove all files from trashcan
+    alias rrm='trash' # rrm FILENAME # move file to trash
+    alias rrml='trash-list' # show trashcan content
+    alias rrmr='trash-restore' # show trashed files in current folder and allow to restore them
+    alias rrmm='trash-rm' # rrmm PATTERN # remove files matching the PATTERN from trashcan
+    alias rrmc='trash-empty' # remove all files from trashcan
 
 # }}}
 
@@ -269,10 +275,13 @@
     # quickly check if a given port is being used
     #  use: port 80
     port() ( ss -peanut | grep ":$1" | grep LISTEN )
-    alias ports="ss -peanut | grep LISTEN"
+    alias ports='ss -peanut | grep LISTEN'
 
-    open () {
-        xdg-open $* > /dev/null 2>&1
-    }
+    # quickly serve current directory on port 8000
+    alias serve='python -m SimpleHTTPServer'
+
+    open() ( xdg-open $* > /dev/null 2>&1 )
+
+    alias aliases='subl ~/.shell_aliases'
 
 # }}}

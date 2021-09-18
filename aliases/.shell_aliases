@@ -269,8 +269,11 @@
     # quickly list mounted drives (as `mount` is too verbose)
     alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 
+    # show pid of selected window
+    alias winpid="xprop _NET_WM_PID | sed 's/_NET_WM_PID(CARDINAL) = //'"
+
     # alternative to `cp` using rsync - shows copying progress
-    # alias cpv='rsync -ah --info=progress2'
+    alias cpv='rsync -ah --info=progress2'
 
     # quickly check if a given port is being used
     #  use: port 80

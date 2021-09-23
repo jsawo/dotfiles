@@ -253,6 +253,34 @@
 
 # }}}
 
+# local dev {{{
+# ==============================================================================
+
+    alias php_list='sudo update-alternatives --list php'
+    alias php_switch_74='sudo update-alternatives --set php /usr/bin/php7.4'
+    alias php_switch_80='sudo update-alternatives --set php /usr/bin/php8.0'
+    alias php_switch_81='sudo update-alternatives --set php /usr/bin/php8.1'
+
+    function db {
+        if [ "$1" = "reset" ]; then
+            mysql -utoor -e "drop database $2; create database $2"
+        elif [ "$1" = "create" ]; then
+            mysql -utoor -e "create database $2"
+        elif [ "$1" = "drop" ]; then
+            mysql -utoor -e "drop database $2"
+        elif [ "$1" = "list" ]; then
+            mysql -utoor -e "show databases"
+        fi
+    }
+
+    function create_db {
+        DB_NAME=$(awk -F "=" '/DB_DATABASE/ {print $2}' .env)
+        echo "Creating database $DB_NAME"
+        mysql -utoor -e "CREATE DATABASE ${DB_NAME};"
+    }
+
+# }}}
+
 # Other stuff {{{
 # ==============================================================================
 

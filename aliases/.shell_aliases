@@ -4,14 +4,11 @@
     alias ..='cd ..'
     alias cd..='cd ..'
 
-    # cd into a given directory and ls it's content
+    # cd into a given directory and ls its content
     function cl() {
         DIR="$*";
-        if [ $# -lt 1 ]; then
-            DIR=$HOME; # if no DIR given, go home
-        fi;
-        builtin cd "${DIR}" && \
-            ll
+        if [ $# -lt 1 ]; then; DIR=$HOME; fi;
+        builtin cd "${DIR}" && ls -la
     }
 
     alias v='nvim'
@@ -40,8 +37,8 @@
     alias ll='ls -AlF'
     alias la='ls -A'
     alias l='ls -F1sh'
-    alias lf="ll -p | grep -v /" # list only files
-    alias ld="ll -p | grep /" # list only directories
+    alias lf='ll -p | grep -v /' # list only files
+    alias ld='ll -p | grep /' # list only directories
     alias l.='ls -ld .*' # list only dot files
     alias lt='ls -F1shS' # sort by size
     alias ltd='du -sh * | sort -hr' # sort by size but count also directories
@@ -103,9 +100,7 @@
     alias dcu='docker-compose up'
     alias dce='docker-compose exec'
     alias dcea='docker-compose exec app'
-    dceas () {
-        docker-compose exec app su app -c "$*"
-    }
+    dceas() ( docker-compose exec app su app -c "$*" )
     alias dceasa='dceas php artisan'
     alias dcr='docker-compose run'
     alias dcrr='docker-compose run --rm -u "$(id -u):$(id -g)"'
@@ -145,11 +140,11 @@
     alias gcob='git checkout -b'
     alias gct='git checkout --track'
     alias gcpd='git checkout master; git pull; git branch -D'
-    alias gst="git stash"
-    alias gstb="git stash branch"
-    alias gstd="git stash drop"
-    alias gstl="git stash list"
-    alias gstp="git stash pop"
+    alias gst='git stash'
+    alias gstb='git stash branch'
+    alias gstd='git stash drop'
+    alias gstl='git stash list'
+    alias gstp='git stash pop'
     # Show untracked files
     alias gu='git ls-files . --exclude-standard --others'
 
@@ -191,53 +186,34 @@
 # Sounds and notifications {{{
 # ==============================================================================
 
-    alias lbeep1='play -qn -t alsa synth 0.1 sin 600'
-    alias lbeep2='play -qn -t alsa synth 0.1 sin 800'
-    alias lbeep3='play -qn -t alsa synth 0.1 sin 1000'
-    alias lbeep4='play -qn -t alsa synth 0.1 sin 1200'
-    alias lbeep5='play -qn -t alsa synth 0.1 sin 1400'
-    alias lbeep6='play -qn -t alsa synth 0.1 sin 1600'
+    # use: beep [pitch 0-50] [volume .01-1] [length .1-x]
+    beep() (
+        _S=${1:-0}; _V=${2:-0.3}; _L=${3:-0.1}
+        _SINE=$(expr 200 + 200 \* $_S)
+        play -qn -t alsa synth $_L sin $_SINE vol $_V
+    )
 
-    alias beep1='play -qn -t alsa synth 0.1 sin 600 vol 0.5'
-    alias beep2='play -qn -t alsa synth 0.1 sin 800 vol 0.5'
-    alias beep3='play -qn -t alsa synth 0.1 sin 1000 vol 0.5'
-    alias beep4='play -qn -t alsa synth 0.1 sin 1200 vol 0.5'
-    alias beep5='play -qn -t alsa synth 0.1 sin 1400 vol 0.5'
-    alias beep6='play -qn -t alsa synth 0.1 sin 1600 vol 0.5'
+    tone1() ( beep 0 .1; beep; beep 0 .6; beep 3 .6; beep 3; beep 3 .1; )
+    tone2() ( beep 0 .1; beep 0 .1; beep 4 .3; )
+    tone3() ( play -nq -t alsa synth 0.2 sin 400 : synth 0.2 sin 600 : synth 0.2 sin 300 )
+    tone4() ( play -qn -t alsa synth .1 sin 100-1800 synth .1 sin fmod 1500-100 )
+    tone5() ( play -nq -t alsa synth 0.2 sin 600-100 : synth 0.2 sin 100-600 )
 
-    alias qbeep1='play -qn -t alsa synth 0.1 sin 600 vol 0.1'
-    alias qbeep2='play -qn -t alsa synth 0.1 sin 800 vol 0.1'
-    alias qbeep3='play -qn -t alsa synth 0.1 sin 1000 vol 0.1'
-    alias qbeep4='play -qn -t alsa synth 0.1 sin 1200 vol 0.1'
-    alias qbeep5='play -qn -t alsa synth 0.1 sin 1400 vol 0.1'
-    alias qbeep6='play -qn -t alsa synth 0.1 sin 1600 vol 0.1'
+    say() ( echo $1 | festival --tts )
+    psay() ( spd-say -wl pl -i -50 "$1" )
 
-    alias qsay='spd-say -wl en -i -80'
-    alias qpsay='spd-say -wl pl -i -80'
-    alias qfsay='spd-say -wr +60 -l en -i -80'
+    # use: pop "my notification text"
+    alias pop='notify-send'
 
-    alias say='spd-say -wl en -i -30" # say "get back to work'
-    alias psay='spd-say -wl pl -i -30" # psay "wracaj do pracy'
-    alias fsay='spd-say -wr +60 -l en -i -30'
-
-    alias lsay='spd-say -wl en'
-    alias lpsay='spd-say -wl pl'
-    alias lfsay='spd-say -wr +60 -l en'
-
-    alias pop='notify-send' # pop "my notification text"
-
-    # use: super-slow-command;b
-    b() ( spd-say -wl en 'done'; zenity --info --width=550 --text "$(date); $(pwd)" & )
-
-    # Add an "alert" alias for long running commands
-    #  use: sleep 10; alert
-    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+    # use: super-slow-command; b
+    b() ( say 'done'; zenity --info --width=550 --text "DATE: $(date); \n PWD: $(pwd)" & )
 
 # }}}
 
 # KDE {{{
 # ==============================================================================
 
+    alias start_plasma='kstart5 plasmashell'
     alias restart_plasma='kquitapp5 plasmashell && kstart5 plasmashell'
 
 # }}}
@@ -273,11 +249,15 @@
         fi
     }
 
+    # create db based on $DB_NAME set in .env
     function create_db {
         DB_NAME=$(awk -F "=" '/DB_DATABASE/ {print $2}' .env)
         echo "Creating database $DB_NAME"
         mysql -utoor -e "CREATE DATABASE ${DB_NAME};"
     }
+
+    # quickly serve current directory on port 8000
+    alias serve='python -m SimpleHTTPServer'
 
 # }}}
 
@@ -294,7 +274,7 @@
     alias nowrap="printf '\033[?7l'"
     alias wrap="printf '\033[?7h'"
 
-    # quickly list mounted drives (as `mount` is too verbose)
+    # quickly list mounted drives (as `mount` output is too verbose)
     alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 
     # show pid of selected window
@@ -307,9 +287,6 @@
     #  use: port 80
     port() ( ss -peanut | grep ":$1" | grep LISTEN )
     alias ports='ss -peanut | grep LISTEN'
-
-    # quickly serve current directory on port 8000
-    alias serve='python -m SimpleHTTPServer'
 
     open() ( xdg-open $* > /dev/null 2>&1 )
 

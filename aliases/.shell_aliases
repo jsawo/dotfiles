@@ -292,4 +292,9 @@
 
     alias aliases='subl ~/.shell_aliases'
 
+    # ls -la | tosubl
+    # tosubl() ( subl -n - )
+    alias tosubl='subl -n -'
+    alias tosubll='subl -'
+
 # }}}

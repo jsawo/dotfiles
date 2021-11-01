@@ -9,7 +9,6 @@
     export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-ohmyzsh-SLASH-ohmyzsh"
 
     antibody bundle ohmyzsh/ohmyzsh
-    antibody bundle ohmyzsh/ohmyzsh path:plugins/cp # `cpv` command (https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/cp)
     antibody bundle ohmyzsh/ohmyzsh path:plugins/docker
     antibody bundle ohmyzsh/ohmyzsh path:plugins/docker-compose
     antibody bundle ohmyzsh/ohmyzsh path:plugins/git-flow # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git-flow / https://github.com/nvie/gitflow
@@ -18,7 +17,6 @@
     antibody bundle djui/alias-tips
     # antibody bundle zsh-users/zsh-autosuggestions
     antibody bundle jessarcher/zsh-artisan # https://github.com/jessarcher/zsh-artisan
-        # export ARTISAN_OPEN_ON_MAKE_EDITOR='subl' # editor used to open newly created files by `artisan make:*` 
 
     # Theme
     # antibody bundle dracula/zsh
@@ -101,4 +99,3 @@
 # }}}
 
 # vim: set nospell foldmethod=marker foldlevel=0:
-

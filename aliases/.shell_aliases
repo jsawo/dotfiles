@@ -6,8 +6,10 @@
 
     # cd into a given directory and ls its content
     function cl() {
-        DIR="$*";
-        if [ $# -lt 1 ]; then; DIR=$HOME; fi;
+        DIR="$*"
+        if [ $# -lt 1 ]; then
+            DIR=$HOME
+        fi
         builtin cd "${DIR}" && ls -la
     }
 
@@ -293,7 +295,6 @@
     alias aliases='subl ~/.shell_aliases'
 
     # ls -la | tosubl
-    # tosubl() ( subl -n - )
     alias tosubl='subl -n -'
     alias tosubll='subl -'
 

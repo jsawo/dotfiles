@@ -1,6 +1,6 @@
 # Laravel Tinker custom extensions
 
-*note: this config can safely be used with Tinkerwell - the commands will *
+*note: this config can safely be used with Tinkerwell - the commands will*
 
 ## Commands
 

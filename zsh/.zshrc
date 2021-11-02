@@ -92,10 +92,8 @@
 # Interactive shell startup scripts {{{
 # ==============================================================================
 
-    if [[ $- == *i* && $0 == *zsh* ]]; then
+    if [[ $- == *i* && $0 == *zsh* && -f ~/scripts/login.sh ]]; then
         ~/scripts/login.sh
     fi
 
 # }}}
-
-# vim: set nospell foldmethod=marker foldlevel=0:

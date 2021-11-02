@@ -96,12 +96,12 @@ fi
 
 # Alias definitions.
 [ -f ~/.shell_aliases ] && source ~/.shell_aliases
-[ -f ~/.shell_aliases.zsh ] && source ~/.shell_aliases.zsh
+[ -f ~/.shell_aliases.bash ] && source ~/.shell_aliases.bash
 
 # Additional, instance-specific customizations
 [ -f ~/.shell_extensions ] && source ~/.shell_extensions
 [ -f ~/.shell_extensions.bash ] && source ~/.shell_extensions.bash
 
-if [[ $- == *i* && $0 == *bash* ]]; then
+if [[ $- == *i* && $0 == *bash* && -f ~/scripts/login.sh ]]; then
     ~/scripts/login.sh
 fi

@@ -13,10 +13,16 @@
         builtin cd "${DIR}" && ls -la
     }
 
-    alias v='nvim'
-    alias vim='nvim'
+    if command -v nvim &> /dev/null; then
+        alias v='nvim'
+        alias vim='nvim'
+    fi
+
+    if command -v bat &> /dev/null; then
+        alias cat='bat'
+    fi
+
     alias mux='tmuxinator'
-    alias cat='bat'
     alias lolcat='lolcat-c'
 
     alias copy='xclip -selection clipboard'
@@ -292,7 +298,11 @@
 
     open() ( xdg-open $* > /dev/null 2>&1 )
 
-    alias aliases='subl ~/.shell_aliases'
+    if command -v subl &> /dev/null; then
+        alias aliases='subl ~/.shell_aliases'
+    else
+        alias aliases='vim ~/.shell_aliases'
+    fi
 
     # ls -la | tosubl
     alias tosubl='subl -n -'

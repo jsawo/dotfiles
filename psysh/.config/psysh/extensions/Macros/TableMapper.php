@@ -1,6 +1,6 @@
 <?php
 
-namespace X;
+namespace X\Macros;
 
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TableMapper
 {
-    public static function toTable()
+    public function __invoke()
     {
         return function (?array $includeColumns = null, ?array $excludeColumns = null) {
             if ($this->count() === 0) {

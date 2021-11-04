@@ -110,6 +110,37 @@ On `Illuminate\Support\Collection`:
     | 5  | 43117  |
     +----+--------+
     ```
+- `pluckMany()` like pluck but can select more than one column (provided by Spatie's [laravel-collection-macros](https://github.com/spatie/laravel-collection-macros))
+
+    ```
+    >>> collect([
+          ['a' => 1, 'b' => 10, 'c' => 100],
+          ['a' => 2, 'b' => 20, 'c' => 200],
+        ])->pluckMany(['a', 'b']);
+
+    => collect([
+         ['a' => 1, 'b' => 10],
+         ['a' => 2, 'b' => 20],
+       ]);
+    ```
+
+- `validate()` returns `true` if the given `$callback` returns true for every item (provided by Spatie's [laravel-collection-macros](https://github.com/spatie/laravel-collection-macros))
+
+    ```
+    >>> User::all()->validate(fn($u) => $u->id > 0)
+    => true
+    >>> User::all()->validate(fn($u) => $u->id > 2)
+    => false
+    ```
+
+    If `$callback` is a string or an array, regard it as a validation rule.
+
+    ```
+    >>> collect(['aaa@aaa.com'])->validate('email')
+    => true
+    >>> collect(['aaa@aaa.com', 'aaaa'])->validate('email')
+    => false
+    ```
 
 On `Illuminate\Database\Eloquent\Builder`:
 
@@ -117,7 +148,6 @@ On `Illuminate\Database\Eloquent\Builder`:
 
     ```
     >>> DB::table("users")->where("id", 101)->toRawSql()
-
     => "select * from `users` where `id` = 101"
     ```
 
@@ -129,7 +159,6 @@ Custom casters are provided for:
 
     ```
     >>> User::where('id', 101)
-
     => Illuminate\Database\Eloquent\Builder {#3608
          +sql: "select * from `users` where `id` = 101",
          +query: "select * from `users` where `id` = ?",

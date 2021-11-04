@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 
 include_once __DIR__.'/Tinker.php';
+include_once __DIR__.'/TableMapper.php';
 include_once __DIR__.'/Request.php';
 
 foreach (glob(__DIR__."/Commands/*.php") as $command) {
@@ -12,6 +14,7 @@ foreach (glob(__DIR__."/Commands/*.php") as $command) {
 X\Tinker::alias("Carbon\Carbon");
 
 Builder::macro('toRawSql', X\Tinker::rawSql());
+Collection::macro('table', X\TableMapper::toTable());
 
 if (!function_exists('isTinkerwell')) {
     // Try to determine if we are running Tinkerwell by looking for use of PhpScoper

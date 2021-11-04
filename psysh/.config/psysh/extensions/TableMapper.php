@@ -16,6 +16,11 @@ class TableMapper
     public static function toTable()
     {
         return function (?array $includeColumns = null, ?array $excludeColumns = null) {
+            if ($this->count() === 0) {
+                echo "[ Empty collection ] \n";
+                return;
+            }
+
             $output = new BufferedOutput();
             $table = new Table($output);
             $data = TableMapper::getData($this);

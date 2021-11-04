@@ -4,13 +4,13 @@
 
 ## Commands
 
-- `models` | `m` 
+- `models` | `m`
 
     Lists all models. Can be filtered by model name.
 
-- `model-relations` | `mr` 
+- `model-relations` | `mr`
 
-    Lists all relations on a given model.
+    Lists all relations on a given model (relies on method return types).
 
 - `controllers` | `c`
 
@@ -26,7 +26,7 @@
 
 ## Requests
 
-You can execute custom http requests against your application with `X\Request` class. 
+You can execute custom http requests against your application with `X\Request` class.
 
     (new X\Request)->get('/')
 
@@ -129,7 +129,7 @@ Custom casters are provided for:
 
     ```
     >>> User::where('id', 101)
-  
+
     => Illuminate\Database\Eloquent\Builder {#3608
          +sql: "select * from `users` where `id` = 101",
          +query: "select * from `users` where `id` = ?",
@@ -138,7 +138,7 @@ Custom casters are provided for:
          ],
        }
     ```
-    
+
 ## Aliases
 
 Provides aliases for:

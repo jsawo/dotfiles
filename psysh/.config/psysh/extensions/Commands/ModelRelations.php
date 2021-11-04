@@ -40,15 +40,13 @@ class ModelRelations extends Command
         $output->writeln("<info>Model:</info> $actualTarget");
 
         $table = new Table($output);
-        $table->setHeaders(['Type', 'Name', 'Related Model', 'Namespace']);
+        $table->setHeaders(['Name', 'Type']);
 
         $relationships = $this->getRelationships($actualTarget);
         foreach ($relationships as $relationship) {
             $table->addRow([
-                $relationship['type'],
                 $relationship['name'],
-                Str::of($relationship['model'])->afterLast('\\'),
-                Str::of($relationship['model'])->beforeLast('\\'),
+                $relationship['type'],
             ]);
         }
 
@@ -60,7 +58,6 @@ class ModelRelations extends Command
     private function getRelationships(string $target): array
     {
         $rc = new ReflectionClass($target);
-        $target = new $target;
 
         $relationships = [];
 
@@ -71,19 +68,23 @@ class ModelRelations extends Command
             if (!empty($method->getParameters())) {
                 continue;
             }
-            if ($method->getName() == __FUNCTION__) {
+
+            $return = $method->getReturnType();
+
+            if (is_null($return)) continue;
+
+            try {
+                $return = (new ReflectionClass($return->getName()));
+            } catch (\ReflectionException $e) {
                 continue;
             }
 
-            $return = $method->invoke($target);
+            if (!$return->isSubclassOf(Relation::class)) continue;
 
-            if ($return instanceof Relation) {
-                $relationships[$method->getName()] = [
-                    'name' => $method->getName(),
-                    'type' => (new ReflectionClass($return))->getShortName(),
-                    'model' => (new ReflectionClass($return->getRelated()))->getName(),
-                ];
-            }
+            $relationships[$method->getName()] = [
+                'name' => $method->getName(),
+                'type' => $return->getShortName(),
+            ];
         }
 
         return $relationships;

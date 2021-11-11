@@ -158,11 +158,13 @@
 
     alias gl='git log'
     alias glp='git log -p'
+    alias gls='git log --pretty=format:"%h %<(20)%an %s"'
     alias gg="git log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%C(yellow)%d%Creset'"
     alias ggs='gg --stat'
     alias gwc='git whatchanged'
     # Show commits since last pull
     alias gnew='git log HEAD@{1}..HEAD@{0}'
+    alias gladog='git log --all --decorate --oneline --graph'
 
     # quickly setup a repo with git worktree
     # see: https://infrequently.org/2021/07/worktrees-step-by-step/

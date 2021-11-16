@@ -248,6 +248,15 @@
     alias php_switch_81='sudo update-alternatives --set php /usr/bin/php8.1'
 
     function db {
+        if [ $# -eq 0 ]; then
+            echo "Usage: db <command>"
+            echo "Commands:"
+            echo " - list"
+            echo " - reset <DB>"
+            echo " - create <DB>"
+            echo " - drop <DB>"
+            return 1
+        fi
         if [ "$1" = "reset" ]; then
             mysql -utoor -e "drop database $2; create database $2"
         elif [ "$1" = "create" ]; then

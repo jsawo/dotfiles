@@ -30,3 +30,5 @@
     minus-emph-style = "syntax #613038"
 #[commit]
 #	gpgsign = true
+[init]
+	defaultBranch = main

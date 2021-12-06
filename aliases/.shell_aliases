@@ -223,8 +223,10 @@
 # KDE {{{
 # ==============================================================================
 
-    alias start_plasma='kstart5 plasmashell'
-    alias restart_plasma='kquitapp5 plasmashell && kstart5 plasmashell'
+    alias kde_start_plasma='kstart5 plasmashell'
+    alias kde_restart_plasma='kquitapp5 plasmashell && kstart5 plasmashell'
+    alias kde_stop_compositor='qdbus org.kde.KWin /Compositor suspend'
+    alias kde_start_compositor='qdbus org.kde.KWin /Compositor resume'
 
 # }}}
 

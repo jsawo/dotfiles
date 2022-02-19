@@ -86,6 +86,13 @@
 
 # }}}
 
+# go {{{
+# ==============================================================================
+
+  alias gr='go run .'
+
+# }}}
+
 # npm {{{
 # ==============================================================================
 
@@ -245,6 +252,7 @@
 # ==============================================================================
 
     alias php_list='sudo update-alternatives --list php'
+    alias php_switch_71='sudo update-alternatives --set php /usr/bin/php7.1'
     alias php_switch_74='sudo update-alternatives --set php /usr/bin/php7.4'
     alias php_switch_80='sudo update-alternatives --set php /usr/bin/php8.0'
     alias php_switch_81='sudo update-alternatives --set php /usr/bin/php8.1'

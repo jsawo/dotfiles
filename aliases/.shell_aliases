@@ -5,7 +5,8 @@
     alias cd..='cd ..'
 
     # cd into a given directory and ls its content
-    function cl() {
+    alias cl='cd_and_ls'
+    cd_and_ls() {
         DIR="$*"
         if [ $# -lt 1 ]; then
             DIR=$HOME
@@ -51,6 +52,13 @@
     alias lt='ls -F1shS' # sort by size
     alias ltd='du -sh * | sort -hr' # sort by size but count also directories
     alias lm='ls -tgGh --time-style=long-iso' # sort by modification time
+    alias latest='list_latest_files_recursively'
+    list_latest_files_recursively() (
+        _DEPTH=${1:-2};
+        _LIMIT=${2:-10};
+        echo "latest files (max depth $_DEPTH, limit $_LIMIT)"
+        find . -maxdepth "$_DEPTH" -type f -not -path '*/\.git/*' -exec stat --format '%Y :%y %n' "{}" \; | sort -nr | cut -d: -f2- | head -n "$_LIMIT"
+    )
 
 # }}}
 
@@ -117,7 +125,8 @@
     alias dcu='docker-compose up'
     alias dce='docker-compose exec'
     alias dcea='docker-compose exec app'
-    dceas() ( docker-compose exec app su app -c "$*" )
+    alias dceas='dc_exec_app_su_app'
+    dc_exec_app_su_app() ( docker-compose exec app su app -c "$*" )
     alias dceasa='dceas php artisan'
     alias dcr='docker-compose run'
     alias dcrr='docker-compose run --rm -u "$(id -u):$(id -g)"'
@@ -177,14 +186,15 @@
 
     # quickly setup a repo with git worktree
     # see: https://infrequently.org/2021/07/worktrees-step-by-step/
-    gitclone () {
+    alias gitclone='clone_worktree'
+    clone_worktree () {
         if [ $# -ne 2 ]; then
             echo "Usage: gitclone url dirname"
             return 1
         fi
 
-        mkdir $2
-        cd $2
+        mkdir "$2"
+        cd "$2"
         git clone --bare $1 .bare
         echo "gitdir: ./.bare" > .git
         git worktree add main
@@ -259,7 +269,7 @@
     alias php_switch_80='sudo update-alternatives --set php /usr/bin/php8.0'
     alias php_switch_81='sudo update-alternatives --set php /usr/bin/php8.1'
 
-    function db {
+    db() (
         if [ $# -eq 0 ]; then
             echo "Usage: db <command>"
             echo "Commands:"
@@ -278,14 +288,14 @@
         elif [ "$1" = "list" ]; then
             mysql -utoor -e "show databases"
         fi
-    }
+    )
 
     # create db based on $DB_NAME set in .env
-    function create_db {
+    create_db() (
         DB_NAME=$(awk -F "=" '/DB_DATABASE/ {print $2}' .env)
         echo "Creating database $DB_NAME"
         mysql -utoor -e "CREATE DATABASE ${DB_NAME};"
-    }
+    )
 
     # quickly serve current directory on port 8000
     alias serve='python -m SimpleHTTPServer'
@@ -316,10 +326,12 @@
 
     # quickly check if a given port is being used
     #  use: port 80
-    port() ( ss -peanut | grep ":$1" | grep LISTEN )
+    alias port='show_port_info'
+    show_port_info() ( ss -peanut | grep ":$1" | grep LISTEN )
     alias ports='ss -peanut | grep LISTEN'
 
-    open() ( xdg-open $* > /dev/null 2>&1 )
+    alias open='system_open'
+    system_open() ( xdg-open $* > /dev/null 2>&1 )
 
     if command -v subl &> /dev/null; then
         alias aliases='subl ~/.shell_aliases'

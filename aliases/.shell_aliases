@@ -216,20 +216,13 @@
 # ==============================================================================
 
     # use: beep [pitch 0-50] [volume .01-1] [length .1-x]
-    beep() (
-        _S=${1:-0}; _V=${2:-0.3}; _L=${3:-0.1}
-        _SINE=$(expr 200 + 200 \* $_S)
-        play -qn -t alsa synth $_L sin $_SINE vol $_V
-    )
-
-    tone1() ( beep 0 .1; beep; beep 0 .6; beep 3 .6; beep 3; beep 3 .1; )
-    tone2() ( beep 0 .1; beep 0 .1; beep 4 .3; )
-    tone3() ( play -nq -t alsa synth 0.2 sin 400 : synth 0.2 sin 600 : synth 0.2 sin 300 )
-    tone4() ( play -qn -t alsa synth .1 sin 100-1800 synth .1 sin fmod 1500-100 )
-    tone5() ( play -nq -t alsa synth 0.2 sin 600-100 : synth 0.2 sin 100-600 )
-
-    say() ( echo $1 | festival --tts )
-    psay() ( spd-say -wl pl -i -50 "$1" )
+    beep() ( ~/scripts/beep "$@" )
+    # use: tone [1-5]
+    tone() ( ~/scripts/tone "$@" )
+    # use: say lorem ipsum
+    say() ( ~/scripts/say "$@" )
+    # use: sayp lorem ipsum
+    sayp() ( ~/scripts/sayp "$@" )
 
     # use: pop "my notification text"
     alias pop='notify-send'

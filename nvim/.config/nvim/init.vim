@@ -1,15 +1,13 @@
 set linebreak               " Break lines at word (requires Wrap lines)
-set showbreak=→  	 	        " Wrap-broken line prefix
+set showbreak=→  	 	    " Wrap-broken line prefix
 
-set ignorecase			" Search is by default ignores letter case
-set smartcase			" Search is case sensitive only if the pattern has UC letters
+set ignorecase			    " Search is by default ignores letter case
+set smartcase			    " Search is case sensitive only if the pattern has UC letters
 
 set tabstop=4
-set softtabstop=4		" Number of spaces per Tab
-set shiftwidth=4		" Number of auto-indent spaces
-set expandtab       " Insert spaces instead of tabs
-
-set relativenumber  " use relative line numbers
+set softtabstop=4		    " Number of spaces per Tab
+set shiftwidth=4		    " Number of auto-indent spaces
+set expandtab               " Insert spaces instead of tabs
 
 set cursorline
 
@@ -31,9 +29,10 @@ inoremap KJ <Esc>
 nnoremap j gj
 nnoremap k gk
 
-nnoremap gV `[v`]       " highlight last inserted text
+" highlight last inserted text
+nnoremap gV `[v`]
 
-let mapleader=","       " set mapleader to comma (default: \)
+let mapleader=","           " set mapleader to comma (default: \)
 
 " toggle search highlights
 nnoremap <Leader><Leader> :set hlsearch!<cr>
@@ -46,7 +45,7 @@ nnoremap <leader>s :%s/
 nnoremap <leader>w :w!<cr>
 
 " toggle line numbers
-nmap <leader>l :set number!<cr>
+nmap <leader>l :set number! relativenumber! <cr>
 
 " toggle between this and previously opened file
 nnoremap <C-e> :e#<CR>

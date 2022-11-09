@@ -4,6 +4,7 @@
     editor = vim
     pager = delta
     excludesfile = ~/.gitignore_global
+	autocrlf = input
 [diff]
     tool = vimdiff
 [fetch]
@@ -14,6 +15,7 @@
     path = ~/.gitconfig_local
 [push]
     default = current
+	autoSetupRemote = true
 [pull]
 	rebase = true
 [rerere]

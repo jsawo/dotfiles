@@ -46,8 +46,8 @@
     alias ll='ls -AlF'
     alias la='ls -A'
     alias l='ls -F1sh'
-    alias lf='ll -p | grep -v /' # list only files
-    alias ld='ll -p | grep /' # list only directories
+    alias llf='ll -p | grep -v /' # list only files
+    alias lld='ll -p | grep /' # list only directories
     alias l.='ls -ld .*' # list only dot files
     alias lt='ls -F1shS' # sort by size
     alias ltd='du -sh * | sort -hr' # sort by size but count also directories

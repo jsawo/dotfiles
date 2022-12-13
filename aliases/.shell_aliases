@@ -208,6 +208,8 @@
     alias t='todo.sh'
     complete -F _todo t
     alias j='jrnl'
+    alias whenn='when_tag_filter'
+    when_tag_filter() ( when --prefilter="grep '#$1'" )
 
 # }}}
 

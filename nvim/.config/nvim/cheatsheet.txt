@@ -1,0 +1,104 @@
+## General
+Close current window                                     | <C-w>c / <C-w>q
+Move visually selected lines up or down                  | J / K
+Scroll up or down half screen                            | <C-d> / <C-u>
+Copy to system clipboard                                 | <leader>y / <leader>Y
+Format file                                              | <C-A-f>
+Format selection                                         | =
+Exit insert mode                                         | jj / <esc>
+Quickly insert semicolon                                 | ;;
+Quickly insert comma                                     | ,,
+Indent lines                                             | > / <
+Clear search highlights                                  | <leader><leader>
+
+## Quickfix
+Next                                                     | <C-k>
+Prev                                                     | <C-j>
+lNext                                                    | <leader>k
+lPrev                                                    | <leader>j
+
+## Netrw
+Open netrw                                               | <leader>pv
+
+## Cheatsheet
+Open                                                     | <leader>?
+Edit (when cheatsheet is visible)                        | <C-e>
+
+## Nvim-Tree
+Help                                                     | g?
+New tab                                                  | <C-t>
+
+## Comment
+General line comment format                              | gc[count]{motion}
+General block comment format                             | gb[count]{motion}
+Toggle line comment                                      | gcc
+Toggle nlock comment                                     | gbc
+Add comment at the end of the line                       | gcA
+Add comment above                                        | gcO
+Add comment below                                        | gco
+
+## Telescope
+Close                                                    | <C-c> / <esc>
+GoTo history next                                        | <C-Down>
+GoTo history prev                                        | <C-Up>
+Toggle selection                                         | <Tab>
+Open file in tab                                         | <C-t>
+Open file in split                                       | <C-x>
+Open file in vsplit                                      | <C-v>
+Scroll up in preview window                              | <C-u>
+Scroll down in preview window                            | <C-d>
+Send to quickfix list                                    | <C-q>
+Open Find Files dialog (respects .gitignore)             | <C-p> / <leader>f
+Open All Files dialog                                    | <leader>F
+Open Recent Files dialog                                 | <C-e>
+Open LSP Document Symbols list                           | <leader>l
+Open Live Grep dialog                                    | <leader>gr
+Open Git Commits dialog                                  | <leader>gc
+Open Git Branches dialog                                 | <leader>gb
+Open file browser                                        | <leader>b
+
+## BarBar
+GoTo next tab                                            | <A-.>
+GoTo prev tab                                            | <A-,>
+Reorder tab right                                        | <A->>
+Reorder tab left                                         | <A-<>
+GoTo tab 1-9                                             | <A-1> … <A-9>
+Reorder tab Left                                         | <A-<>
+Pin/Unpin tab                                            | <A-p>
+Close tab                                                | <A-q>
+Close all tabs except current or pinned                  | <A-Q>
+Magic Tab Picker                                         | <A-/>
+
+## Harpoon
+Add file to menu                                         | <leader>a
+Show menu                                                | <leader>q
+
+## Saga
+Find symbol definition and references                    | gh
+Select code action available at the current line         | <leader>ca
+Peek symbol definition                                   | sd
+[definition window] close definition                     | q
+[definition window] open peeked file in tab              | e
+[definition window] open peeked file in split            | <C-c>i
+[definition window] open peeked file in vsplit           | <C-c>v
+Show list of diagnostics for the current line            | <leader>cd
+GoTo next diagnostic                                     | [d
+GoTo prev diagnostic                                     | ]d
+Show document outline                                    | <leader>o
+[outline window] GoTo symbol                             | o
+Show symbol hover information                            | K
+Toggle floating terminal                                 | <A-d>
+
+## Undotree
+Toggle undotree                                          | <leader>u
+Show quick help                                          | ?
+Close window                                             | q
+Toggle diff panel                                        | D
+
+## Zen Mode / Twilight
+Toggle zen mode                                          | <leader>zz
+Toggle Twilight                                          | <leader>za
+
+## Nvim-Tree
+Toggle file tree                                         | <C-b>
+Locate current file in the tree                          | <C-A-b>

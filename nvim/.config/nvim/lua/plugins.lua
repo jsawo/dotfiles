@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
     -- colorschemes
     use({'rose-pine/neovim', as = 'rose-pine'})
     use('Mofiqul/dracula.nvim')
+    use('projekt0n/github-nvim-theme')
 
     use({'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },

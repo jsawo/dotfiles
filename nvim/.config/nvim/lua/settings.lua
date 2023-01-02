@@ -1,5 +1,7 @@
-vim.cmd('colorscheme rose-pine')
+-- vim.cmd('colorscheme rose-pine')
 -- vim.cmd('colorscheme dracula')
+require('github-theme').setup()
+vim.cmd('colorscheme github_light')
 
 vim.opt.number = true -- Display absolute line number on the current line only
 vim.opt.relativenumber = true -- Use relative line numbers
@@ -17,7 +19,7 @@ vim.opt.showbreak = "→ " -- Wrap-broken line prefix
 
 vim.opt.swapfile = false 
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = vim.fn.expand "~/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.updatetime = 50 -- idle time in ms before writing to swap (default 4000)
 

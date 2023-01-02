@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
     use({'rose-pine/neovim', as = 'rose-pine'})
     use('Mofiqul/dracula.nvim')
 
-    use({'nvim-lualine/lualine.nvim', 
+    use({'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function() require('lualine').setup() end
     })
@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
     use('theprimeagen/harpoon') -- Harpoon - quick file navigation
     use('mbbill/undotree') -- Undotree - undo history visualized
     use('folke/zen-mode.nvim') -- ZenMode - distraction free writing
-    use("folke/twilight.nvim") -- Twilight - dim inactive code in zen mode
+    use('folke/twilight.nvim') -- Twilight - dim inactive code in zen mode
     use('nvim-treesitter/nvim-treesitter-context') -- Treesitter Context - show context around cursor
     use({"glepnir/lspsaga.nvim", branch = "main"}) -- LSP Saga - LSP UI
     use('numToStr/Comment.nvim') -- Comment - comment/uncomment code
@@ -63,5 +63,7 @@ return require('packer').startup(function(use)
         { 'L3MON4D3/LuaSnip' },
         { 'rafamadriz/friendly-snippets' },
     }})
+
+    use('github/copilot.vim') -- copilot
 end)
 

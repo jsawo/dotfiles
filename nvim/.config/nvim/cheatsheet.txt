@@ -62,6 +62,7 @@ Open Live Grep dialog                                    | <leader>gr
 Open Git Commits dialog                                  | <leader>gc
 Open Git Branches dialog                                 | <leader>gb
 Open file browser                                        | <leader>b
+Open filtered results in Trouble window                  | <C-t>
 
 ## BarBar
 GoTo next tab                                            | <M-.>
@@ -78,6 +79,18 @@ Magic Tab Picker                                         | <M-/>
 ## Harpoon
 Add file to menu                                         | <leader>a
 Show menu                                                | <leader>q
+
+## Trouble
+Open list of all diagnostics                             | <leader>cs
+Jump to diagnostic                                       | <CR> / <TAB>
+Jump to diagnostic and close the window                  | o
+Open diagnostic in a split                               | <C-x>
+Open diagnostic in a vsplit                              | <C-v>
+Open diagnostic in a tab                                 | <C-t>
+Toggle mode - workspace / document                       | m
+Close all folds                                          | zm / zM
+Open all folds                                           | zr / zR
+Toggle fold                                              | za / zA
 
 ## Saga
 Find symbol definition and references                    | gh

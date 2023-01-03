@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
     use('danilamihailov/beacon.nvim') -- Beacon - highlight cursor line
     use({'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end}) -- smooth scrolling
     use({'ray-x/lsp_signature.nvim', config = function() require "lsp_signature".setup({}) end}) -- show function signature
+    use({"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}) -- list diagnostics
 
     -- CheatSheet - handy keyboard shortcuts
     use({'sudormrfbin/cheatsheet.nvim', requires = {

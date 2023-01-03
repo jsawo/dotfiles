@@ -347,4 +347,7 @@
     alias tosubl='subl -n -'
     alias tosubll='subl -'
 
+    # fd on ubuntu is called fdfind to avoid conflicts
+    alias fd='fdfind'
+
 # }}}

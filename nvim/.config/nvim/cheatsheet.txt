@@ -3,13 +3,19 @@ Close current window                                     | <C-w>c / <C-w>q
 Move visually selected lines up or down                  | J / K
 Scroll up or down half screen                            | <C-d> / <C-u>
 Copy to system clipboard                                 | <leader>y / <leader>Y
-Format file                                              | <C-A-f>
+Format file                                              | <C-M-f>
 Format selection                                         | =
 Exit insert mode                                         | jj / <esc>
 Quickly insert semicolon                                 | ;;
 Quickly insert comma                                     | ,,
 Indent lines                                             | > / <
 Clear search highlights                                  | <leader><leader>
+Yank the whole line with eol                             | yy
+
+## Copilot
+Request completion                                       | <M-\>
+Cycle to next / prev completion                          | <M-]> / <M-[>
+Accept completion                                        | <M-p>
 
 ## Quickfix
 Next                                                     | <C-k>
@@ -58,16 +64,16 @@ Open Git Branches dialog                                 | <leader>gb
 Open file browser                                        | <leader>b
 
 ## BarBar
-GoTo next tab                                            | <A-.>
-GoTo prev tab                                            | <A-,>
-Reorder tab right                                        | <A->>
-Reorder tab left                                         | <A-<>
-GoTo tab 1-9                                             | <A-1> … <A-9>
-Reorder tab Left                                         | <A-<>
-Pin/Unpin tab                                            | <A-p>
-Close tab                                                | <A-q>
-Close all tabs except current or pinned                  | <A-Q>
-Magic Tab Picker                                         | <A-/>
+GoTo next tab                                            | <M-.>
+GoTo prev tab                                            | <M-,>
+Reorder tab right                                        | <M->>
+Reorder tab left                                         | <M-<>
+GoTo tab 1-9                                             | <M-1> … <M-9>
+Reorder tab Left                                         | <M-<>
+Pin/Unpin tab                                            | <M-p>
+Close tab                                                | <M-q>
+Close all tabs except current or pinned                  | <M-Q>
+Magic Tab Picker                                         | <M-/>
 
 ## Harpoon
 Add file to menu                                         | <leader>a
@@ -87,7 +93,7 @@ GoTo prev diagnostic                                     | ]d
 Show document outline                                    | <leader>o
 [outline window] GoTo symbol                             | o
 Show symbol hover information                            | K
-Toggle floating terminal                                 | <A-d>
+Toggle floating terminal                                 | <M-d>
 
 ## Undotree
 Toggle undotree                                          | <leader>u
@@ -101,4 +107,4 @@ Toggle Twilight                                          | <leader>za
 
 ## Nvim-Tree
 Toggle file tree                                         | <C-b>
-Locate current file in the tree                          | <C-A-b>
+Locate current file in the tree                          | <C-M-b>

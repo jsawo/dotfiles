@@ -19,7 +19,7 @@ vim.opt.showbreak = "→ " -- Wrap-broken line prefix
 
 vim.opt.swapfile = false 
 vim.opt.backup = false
-vim.opt.undodir = vim.fn.expand "~/.vim/undodir"
+vim.opt.undodir = vim.fn.expand('~') .. '/.local/share/nvim/undo'
 vim.opt.undofile = true
 vim.opt.updatetime = 50 -- idle time in ms before writing to swap (default 4000)
 

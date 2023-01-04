@@ -118,6 +118,39 @@ Toggle diff panel                                        | D
 Toggle zen mode                                          | <leader>zz
 Toggle Twilight                                          | <leader>za
 
-## Nvim-Tree
-Toggle file tree                                         | <C-b>
-Locate current file in the tree                          | <C-M-b>
+## Neo-tree
+Show help                                                | ?
+Toggle file tree                                         | \
+Toggle node                                              | <space>
+Open node                                                | <CR>
+Toggle preview                                           | P
+Open in split                                            | S
+Open in vsplit                                           | s
+Open in new tab                                          | t
+Close node                                               | C
+Close all nodes                                          | z
+Add file                                                 | a
+Add directory                                            | A
+Delete node                                              | d
+Rename node                                              | r
+Move node                                                | m
+Close window                                             | q
+Next / Prev source (files / buffers / git)               | > / <
+[files] Set root                                         | .
+[files] Navigate up                                      | <bs>
+[files] Toggle hidden                                    | H
+[files] Fuzzy finder                                     | /
+[files] Fuzzy finder dis only                            | D
+[files] Filter on submit                                 | f
+[files] Clear filter                                     | <C-x>
+[files] Next / prev git modified                         | ]g / [g
+[buffers] Buffer delete                                  | bd
+[buffers] Navigate up                                    | <bs>
+[buffers] Set root                                       | .
+[git] Add all files to git                               | A
+[git] Unstage file                                       | gu
+[git] Add file                                           | ga
+[git] Revert file                                        | gr
+[git] Commit                                             | gc
+[git] Push                                               | gp
+[git] Commit and push                                    | gg

@@ -10,15 +10,14 @@ return require('packer').startup(function(use)
     use('Mofiqul/dracula.nvim')
     use('projekt0n/github-nvim-theme')
 
-    use({'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        config = function() require('lualine').setup() end
-    })
+    use({'nvim-lualine/lualine.nvim', requires = { 
+        { 'kyazdani42/nvim-web-devicons', opt = true },
+    }})
 
     -- Telescope - fuzzy finder
-    use({'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        requires = {'nvim-lua/plenary.nvim'}
-    })
+    use({'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 
+        { 'nvim-lua/plenary.nvim' },
+    }})
     use('nvim-telescope/telescope-file-browser.nvim')
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}) -- Treesitter - syntax highlighting
@@ -28,24 +27,29 @@ return require('packer').startup(function(use)
     use('folke/zen-mode.nvim') -- ZenMode - distraction free writing
     use('folke/twilight.nvim') -- Twilight - dim inactive code in zen mode
     use('nvim-treesitter/nvim-treesitter-context') -- Treesitter Context - show context around cursor
-    use({"glepnir/lspsaga.nvim", branch = "main"}) -- LSP Saga - LSP UI
+    use({'glepnir/lspsaga.nvim', branch = 'main'}) -- LSP Saga - LSP UI
     use('numToStr/Comment.nvim') -- Comment - comment/uncomment code
     use('danilamihailov/beacon.nvim') -- Beacon - highlight cursor line
     use({'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end}) -- smooth scrolling
-    use({'ray-x/lsp_signature.nvim', config = function() require "lsp_signature".setup({}) end}) -- show function signature
-    use({"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}) -- list diagnostics
+    use({'ray-x/lsp_signature.nvim', config = function() require('lsp_signature').setup({}) end}) -- show function signature
+    use({'folke/trouble.nvim', requires = { -- list diagnostics
+        { 'kyazdani42/nvim-web-devicons' } 
+    }}) 
 
     -- CheatSheet - handy keyboard shortcuts
     use({'sudormrfbin/cheatsheet.nvim', requires = {
-        {'nvim-telescope/telescope.nvim'},
-        {'nvim-lua/popup.nvim'},
-        {'nvim-lua/plenary.nvim'},
+        { 'nvim-telescope/telescope.nvim' },
+        { 'nvim-lua/popup.nvim' },
+        { 'nvim-lua/plenary.nvim' },
     }})
 
-    -- nvim-tree - file explorer
-    use({'nvim-tree/nvim-tree.lua', requires = {
-        'nvim-tree/nvim-web-devicons',
+    -- neo-tree - file explorer
+    use({'nvim-neo-tree/neo-tree.nvim', branch = 'v2.x', requires = { 
+        { 'nvim-lua/plenary.nvim' },
+        { 'nvim-tree/nvim-web-devicons' },
+        { 'MunifTanjim/nui.nvim' },
     }})
+
 
     use('nvim-tree/nvim-web-devicons') -- NERD Icons support
     use({'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}) -- buffer tab bar
@@ -69,6 +73,5 @@ return require('packer').startup(function(use)
     }})
 
     use('github/copilot.vim') -- copilot
-    -- use({ 'github/copilot.vim', config = "require('pack/copilot').setup()", event = 'InsertEnter'})
 end)
 

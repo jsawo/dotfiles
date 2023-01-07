@@ -11,11 +11,39 @@ Quickly insert comma                                     | ,,
 Indent lines                                             | > / <
 Clear search highlights                                  | <leader><leader>
 Yank the whole line with eol                             | yy
+Change word                                              | cw
+Change inside word                                       | ciw
+Change around word                                       | caw
+See where keybinding was defined                         | :verbose map <C-p>
+Change character case                                    | ~
+Switch between «cursor» and «extend» mode                | <TAB>
+Show help                                                | :help visual-multi
+
 
 ## Copilot
 Request completion                                       | <M-\>
 Cycle to next / prev completion                          | <M-]> / <M-[>
 Accept completion                                        | <M-p>
+
+## vim-visual-multi
+Select next word occurence                               | <C-n>
+Create cursors vertically                                | <C-up> / <C-down>
+Select one character at a time                           | <Shift-arrows>
+Get next / prev occurence                                | n / N
+Select next / prev cursor                                | [ / ]
+Skip current and get next occurence                      | q
+Remove current cursor / selection                        | Q
+Start insert mode                                        | i / a / I / A
+
+
+## Colorpicker
+Open color picker (with cursor on a color)               | <leader>cp
+Convert color between HEX, RGB and HSL (in picker)       | <leader>ch
+Increase / Decrease value by 5                           | U / O
+
+## Indent tools
+Next / prev line with the same indent                    | ]i / [i 
+Delete / change / select in indent                       | dii / cii / vii
 
 ## Quickfix
 Next                                                     | <C-k>

@@ -172,5 +172,9 @@ require("neo-tree").setup({
         ["gg"] = "git_commit_and_push",
       }
     }
-  }
+  },
+  source_selector = {
+    winbar = false,
+    statusline = false,
+  },
 })

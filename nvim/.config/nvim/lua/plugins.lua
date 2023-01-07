@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
     use('danilamihailov/beacon.nvim') -- Beacon - highlight cursor line
     use({'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end}) -- smooth scrolling
     use({'ray-x/lsp_signature.nvim', config = function() require('lsp_signature').setup({}) end}) -- show function signature
+    use('monaqa/dial.nvim') -- Dial - increment/decrement numbers
     use({'folke/trouble.nvim', requires = { -- list diagnostics
         { 'kyazdani42/nvim-web-devicons' } 
     }}) 
@@ -50,9 +51,15 @@ return require('packer').startup(function(use)
         { 'MunifTanjim/nui.nvim' },
     }})
 
-
     use('nvim-tree/nvim-web-devicons') -- NERD Icons support
     use({'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}) -- buffer tab bar
+    use({"ziontee113/color-picker.nvim", config = function() require("color-picker") end}) -- color picker
+    use('mg979/vim-visual-multi')
+
+    -- Indent Tools
+    use({"arsham/indent-tools.nvim", requires = { "arsham/arshlib.nvim" },
+        config = function() require("indent-tools").config({}) end,
+    })
 
     -- LSP stuff
     use({'VonHeikemen/lsp-zero.nvim', requires = {

@@ -7,7 +7,8 @@ vim.fn.sign_define("DiagnosticSignWarn", {text = " ", texthl = "DiagnosticSig
 vim.fn.sign_define("DiagnosticSignInfo", {text = " ", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "DiagnosticSignHint"})
 
-vim.cmd([[nnoremap \ :Neotree toggle<cr>]])
+vim.cmd([[nnoremap <C-l> :Neotree toggle<cr>]])
+vim.cmd([[nnoremap <leader>l :Neotree reveal<cr>]])
 
 require("neo-tree").setup({
   close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab

@@ -2,6 +2,7 @@
 Close current window                                     | <C-w>c / <C-w>q
 Move visually selected lines up or down                  | J / K
 Scroll up or down half screen                            | <C-d> / <C-u>
+Scroll up or down one full screen (page up / down)       | <C-b> / <C-d>
 Copy to system clipboard                                 | <leader>y / <leader>Y
 Format file                                              | <C-M-f>
 Format selection                                         | =
@@ -14,11 +15,90 @@ Yank the whole line with eol                             | yy
 Change word                                              | cw
 Change inside word                                       | ciw
 Change around word                                       | caw
-See where keybinding was defined                         | :verbose map <C-p>
+See where key mapping was defined                        | :verbose map <C-p>
+See help regarding a given mapping                       | :help U
 Change character case                                    | ~
 Switch between «cursor» and «extend» mode                | <TAB>
 Show help                                                | :help visual-multi
+GoTo the next / previous {                               | ]] / [[
+Insert shell output                                      | :r!ls -la
+Insert date                                              | :r!date
+Auto-completion of path in insert mode                   | <C-x><C-f>
+GoTo next / previous empty line                          | } / {
+GoTo top / middle / bottom of the screen                 | H / M / L
+Keep the current line Top / Center / Bottom on screen    | zt / zz / zb
+Save and quit                                            | ZZ
+Enter replace mode                                       | R
+Undo changes on the current line                         | U
+GoTo matching bracket {[()]}                             | %
+GoTo next / previous bracket {()}                        | [( / ])
 
+## Windows
+Quit a window                                            | <C-w>q
+GoTo left / right window                                 | <C-w> h / l
+GoTo up / down window                                    | <C-w> j / k
+
+## Marks
+GoTo back to line in cur buffer where jumped from        | ''
+GoTo back to position in cur buffer where jumped from    | ``
+GoTo beginning of previously changed or yanked text      | `[
+GoTo end of previously changed or yanked text            | `]
+GoTo beginning of last visual selection                  | `<
+GoTo end of last visual selection                        | `>
+Mark this cursor position as "a"                         | ma
+GoTo position marked as "a"                              | `a
+GoTo line with position marked as "a"                    | 'a
+Delete from current line to line of mark "a"             | d'a
+Delete from current position to position of mark "a"     | d`a
+List all marks                                           | :marks
+List all marks (telescope)                               | :Telescope marks
+Delete mark a                                            | :delm a
+Delete marks a, b, c, d                                  | :delm a-d
+Delete mark a, b, c                                      | :delm abc
+
+## Horizontal movement
+Move to the first column                                 | 0 / |
+Move to the last column                                  | $
+Move to the first non-empty column                       | ^
+Move left to till after a given character ("o" here)     | To
+Move right to till after a given character ("o" here)    | to
+Move left to a given character ("o" here)                | Fo
+Move right to a given character ("o" here)               | fo
+Move to the end of the previous word                     | ge
+Move to the end of the next word                         | e
+Move to the start of the previous word                   | b
+Move to the start of the next word                       | w
+Move to 10th character from in the line                  | 10|
+Repeat last f, t, F or T movement                        | ;
+
+## Jump list
+GoTo the next / previous jump list point                 | <C-i> / <C-o>
+
+## Macros
+Record macro "i"                                         | qi
+Stop recording macro                                     | q
+Run macro "i"                                            | @i
+Run macro "i" 7 times                                    | 7@i
+Repeat last macro                                        | @@
+
+## Text Objects
+Paragraph                                                | p 
+word                                                     | w
+Sentence                                                 | s
+A [], (), <>, or {} block                                | [ / ( / { / <
+A quoted string                                          | ' / " / `
+A block [({                                              | b
+A block in [({                                           | B
+A HTML tag block                                         | t
+
+## Folds
+Open                                                     | zo / zO
+Close                                                    | zc / zC
+Toggle                                                   | za / zA
+Open folds for this line                                 | zv
+Close / Open all                                         | zM / zR
+Fold more / less                                         | zm / zr
+Update folds                                             | zx
 
 ## Copilot
 Request completion                                       | <M-\>
@@ -35,6 +115,19 @@ Skip current and get next occurence                      | q
 Remove current cursor / selection                        | Q
 Start insert mode                                        | i / a / I / A
 
+## treesitter-textsubjects
+Select smart                                             | v.
+Select container outer                                   | v;
+Select container inner                                   | vi;
+Expand selection                                         | .
+Contract selection                                       | ,
+
+## treesitter-textobjects
+Select inside / around function                          | vif / vaf
+Select inside / around class                             | vic / vac
+Swap function params (or arguments) left / righ          | <leader>s / <leader>S
+GoTo next prev function start                            | ]f / [f
+GoTo next prev function end                              | ]F / [F
 
 ## Colorpicker
 Open color picker (with cursor on a color)               | <leader>cp
@@ -57,10 +150,6 @@ Open netrw                                               | <leader>pv
 ## Cheatsheet
 Open                                                     | <leader>?
 Edit (when cheatsheet is visible)                        | <C-e>
-
-## Nvim-Tree
-Help                                                     | g?
-New tab                                                  | <C-t>
 
 ## Comment
 General line comment format                              | gc[count]{motion}
@@ -142,13 +231,18 @@ Show quick help                                          | ?
 Close window                                             | q
 Toggle diff panel                                        | D
 
+## Dial
+Increment number / date or cycle word                    | <C-s>
+Decrement number / date or cycle word                    | <C-x>
+
 ## Zen Mode / Twilight
 Toggle zen mode                                          | <leader>zz
 Toggle Twilight                                          | <leader>za
 
 ## Neo-tree
 Show help                                                | ?
-Toggle file tree                                         | \
+Toggle file tree                                         | <C-l>
+Reveal/locate current file in file tree                  | <leader>l
 Toggle node                                              | <space>
 Open node                                                | <CR>
 Toggle preview                                           | P

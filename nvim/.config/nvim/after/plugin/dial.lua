@@ -86,20 +86,20 @@ config.augends:register_group{
     augend.constant.new({ elements = { "h1", "h2", "h3", "h4", "h5", "h6" } }),
 
     -- cycle between camelCase, PascalCase, snake_case
-    augend.user.new({
-        find = require("dial.augend.common").find_pattern("[%a_]+"),
-        add = function(text, _, _)
-            if to_camel(text) == text then
-                text = to_snake(text)
-            elseif to_snake(text) == text then
-                text = to_pascal(text)
-            elseif to_pascal(text) == text then
-                text = to_camel(text)
-            end
+    -- augend.user.new({
+    --     find = require("dial.augend.common").find_pattern("[%a_]+"),
+    --     add = function(text, _, _)
+    --         if to_camel(text) == text then
+    --             text = to_snake(text)
+    --         elseif to_snake(text) == text then
+    --             text = to_pascal(text)
+    --         elseif to_pascal(text) == text then
+    --             text = to_camel(text)
+    --         end
 
-            return { text = text, cursor = #text }
-        end,
-    }),
+    --         return { text = text, cursor = #text }
+    --     end,
+    -- }),
 
     -- cycle between # Title, ## Title, ### Title, ...
     augend.user.new({

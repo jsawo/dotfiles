@@ -54,7 +54,9 @@ return require('packer').startup(function(use)
     use('nvim-tree/nvim-web-devicons') -- NERD Icons support
     use({'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}) -- buffer tab bar
     use({"ziontee113/color-picker.nvim", config = function() require("color-picker") end}) -- color picker
-    use('mg979/vim-visual-multi')
+    use('mg979/vim-visual-multi') -- visual multi cursor
+    use('RRethy/nvim-treesitter-textsubjects') -- text subjects for treesitter
+    use('nvim-treesitter/nvim-treesitter-textobjects') -- text objects for treesitter
 
     -- Indent Tools
     use({"arsham/indent-tools.nvim", requires = { "arsham/arshlib.nvim" },

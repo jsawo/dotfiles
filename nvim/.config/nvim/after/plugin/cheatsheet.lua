@@ -4,7 +4,7 @@ require("cheatsheet").setup({
     bundled_cheatsheets = {
         disabled = {
             "unicode",
-            -- "nerd-fonts",
+            "nerd-fonts",
         },
     },
 })

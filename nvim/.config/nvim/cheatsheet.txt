@@ -27,7 +27,8 @@ Auto-completion of path in insert mode                   | <C-x><C-f>
 GoTo next / previous empty line                          | } / {
 GoTo top / middle / bottom of the screen                 | H / M / L
 Keep the current line Top / Center / Bottom on screen    | zt / zz / zb
-Save and quit                                            | ZZ
+Quickly save                                             | <leader>w
+Quickly save and quit                                    | ZZ
 Enter replace mode                                       | R
 Undo changes on the current line                         | U
 GoTo matching bracket {[()]}                             | %

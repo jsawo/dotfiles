@@ -32,6 +32,10 @@ Enter replace mode                                       | R
 Undo changes on the current line                         | U
 GoTo matching bracket {[()]}                             | %
 GoTo next / previous bracket {()}                        | [( / ])
+Remove whole line and enter insert mode                  | C
+Remove whole line and enter insert mode with indent      | S
+In insert mode, escape for one normal command (movement) | <C-o>
+Enter insert mode at the beginning of a line             | I
 
 ## Windows
 Quit a window                                            | <C-w>q

@@ -231,6 +231,9 @@ Show document outline                                    | <leader>o
 Show symbol hover information                            | K
 Toggle floating terminal                                 | <M-d>
 
+## LSP
+GoTo symbol definition                                   | gd
+
 ## Undotree
 Toggle undotree                                          | <leader>u
 Show quick help                                          | ?

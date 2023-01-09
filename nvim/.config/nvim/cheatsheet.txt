@@ -36,6 +36,7 @@ Remove whole line and enter insert mode                  | C
 Remove whole line and enter insert mode with indent      | S
 In insert mode, escape for one normal command (movement) | <C-o>
 Enter insert mode at the beginning of a line             | I
+Sort lines and remove duplicates                         | :sort u
 
 ## Windows
 Quit a window                                            | <C-w>q

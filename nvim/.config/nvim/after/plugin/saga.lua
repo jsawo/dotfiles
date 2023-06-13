@@ -1,30 +1,6 @@
 local keymap = vim.keymap.set
-local saga = require('lspsaga')
-local diag = require("lspsaga.diagnostic")
-
-saga.init_lsp_saga({
-    border_style = "single",
-    move_in_saga = { prev = '<C-p>',next = '<C-n>'},
-    rename_action_quit = '<C-c>',
-    finder_action_keys = {
-        open = {'o', '<CR>'},
-        vsplit = 's',
-        split = 'i',
-        tabe = 't',
-        quit = {'q', '<ESC>'},
-    },
-    code_action_keys = {
-        quit = 'q',
-        exec = '<CR>',
-    },
-    definition_action_keys = {
-        edit = 'e',
-        vsplit = '<C-c>v',
-        split = '<C-c>i',
-        tabe = '<C-c>t',
-        quit = 'q',
-    },
-})
+-- local saga = require('lspsaga')
+-- local diag = require("lspsaga.diagnostic")
 
 -- Lsp finder find the symbol definition implement reference
 -- if there is no implement it will hide
@@ -55,8 +31,8 @@ keymap("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
-keymap("n", "[D", function() diag.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
-keymap("n", "]D", function() diag.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
+-- keymap("n", "[D", function() diag.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
+-- keymap("n", "]D", function() diag.goto_next({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
 
 -- Outline
 keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
@@ -64,6 +40,9 @@ keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
+keymap("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", { silent = true })
+keymap("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", { silent = true })
+
 -- toggle float terminal
-keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
+-- keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+-- keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })

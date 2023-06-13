@@ -1,29 +1,43 @@
 -- Set barbar's options
-require'bufferline'.setup {
+require'barbar'.setup {
   animation = true,
   auto_hide = false, -- auto-hiding the tab bar when there is a single buffer
-  closable = true,
+  tabpages = true, -- current/total tabpages indicator (top right corner)
   clickable = true,
 
-  -- diagnostic symbols
-  diagnostics = {
-    [vim.diagnostic.severity.ERROR] = {enabled = true, icon = "✘"},
-    [vim.diagnostic.severity.WARN] = {enabled = true, icon = "⚠️"},
-    [vim.diagnostic.severity.INFO] = {enabled = true, icon = "⚑"},
-    [vim.diagnostic.severity.HINT] = {enabled = true, icon = ""},
+  icons = {
+    -- Valid options to display the buffer index and -number are `true`, 'superscript' and 'subscript'
+    buffer_index = false,
+    buffer_number = false,
+    button = '',
+
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = "✘"},
+      [vim.diagnostic.severity.WARN] = {enabled = true, icon = "⚠️"},
+      [vim.diagnostic.severity.INFO] = {enabled = true, icon = "⚑"},
+      [vim.diagnostic.severity.HINT] = {enabled = true, icon = ""},
+    },
+    gitsigns = {
+      added = {enabled = true, icon = '+'},
+      changed = {enabled = true, icon = '~'},
+      deleted = {enabled = true, icon = '-'},
+    },
+    filetype = {
+      custom_colors = true, -- If false, will use nvim-web-devicons colors
+      enabled = true, -- Requires `nvim-web-devicons`
+    },
+    separator = {left = '▎', right = ''},
+    separator_at_end = true, -- Add a separator after the last buffer in the list
+
+    modified = {button = '●'},
+    pinned = {button = '', filename = true},
   },
 
-  icons = false, -- true / 'numbers' / 'both'
-  icon_separator_active = '▎',
-  icon_separator_inactive = '▎',
-  -- icon_close_tab = '',
-  -- icon_close_tab_modified = '●',
-  icon_pinned = '',
+  -- If true, new buffers will be inserted at the start/end of the list.
+  -- Default is to insert after current buffer.
+  insert_at_end = true,
+  insert_at_start = false,
   maximum_length = 30,
-  hide = {
-    extensions = true, 
-    inactive = false
-  },
 }
 
 local map = vim.api.nvim_set_keymap

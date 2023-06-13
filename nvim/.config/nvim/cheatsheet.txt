@@ -96,6 +96,8 @@ A quoted string                                          | ' / " / `
 A block [({                                              | b
 A block in [({                                           | B
 A HTML tag block                                         | t
+Function (treesitter-textsubjects)                       | f
+Class (treesitter-textsubjects)                          | c
 
 ## Folds
 Open                                                     | zo / zO
@@ -168,23 +170,24 @@ Add comment below                                        | gco
 
 ## Telescope
 Close                                                    | <C-c> / <esc>
-GoTo history next                                        | <C-Down>
-GoTo history prev                                        | <C-Up>
 Toggle selection                                         | <Tab>
 Open file in tab                                         | <C-t>
 Open file in split                                       | <C-x>
 Open file in vsplit                                      | <C-v>
-Scroll up in preview window                              | <C-u>
-Scroll down in preview window                            | <C-d>
 Send to quickfix list                                    | <C-q>
 Open Find Files dialog (respects .gitignore)             | <C-p> / <leader>f
 Open All Files dialog                                    | <leader>F
 Open Recent Files dialog                                 | <C-e>
-Open LSP Document Symbols list                           | <leader>l
+Open LSP Document Symbols list                           | <leader>d
 Open Live Grep dialog                                    | <leader>gr
 Open Git Commits dialog                                  | <leader>gc
 Open Git Branches dialog                                 | <leader>gb
 Open file browser                                        | <leader>b
+[picker window] show picker keybindings                  | <C-h>
+[picker window] next / prev item                         | <C-n> / <C-p>
+[picker window] next / prev history entry                | <C-Down> / <C-Up>
+[picker window] Scroll preview up / down                 | <C-u> / <C-d>
+
 Open filtered results in Trouble window                  | <C-t>
 
 ## BarBar
@@ -217,10 +220,17 @@ Toggle fold                                              | za / zA
 
 ## Saga
 Find symbol definition and references                    | gh
+[finder window] jump to                                  | p
+[finder window] expand or jump                           | o
+[finder window] vsplit                                   | s
+[finder window] split                                    | i
+[finder window] tabe                                     | t
+[finder window] tabnew                                   | r
 Select code action available at the current line         | <leader>ca
 Peek symbol definition                                   | sd
 [definition window] close definition                     | q
-[definition window] open peeked file in tab              | e
+[definition window] edit                                 | <C-c>o
+[definition window] open peeked file in tab              | <C-c>t
 [definition window] open peeked file in split            | <C-c>i
 [definition window] open peeked file in vsplit           | <C-c>v
 Show list of diagnostics for the current line            | <leader>cd
@@ -229,7 +239,20 @@ GoTo prev diagnostic                                     | ]d
 Show document outline                                    | <leader>o
 [outline window] GoTo symbol                             | o
 Show symbol hover information                            | K
+[symbol info window] enter window                        | K
+[symbol info window] open link in browser                | gx
 Toggle floating terminal                                 | <M-d>
+Rename symbol                                            | F2
+[rename window] quit                                     | <C-c>
+Show incoming calls                                      | <leader>ci
+Show outgoing calls                                      | <leader>co
+[calls window] expand / collapse                         | u
+[calls window] jump                                      | o
+[calls window] tabe                                      | t
+[calls window] edit                                      | e
+[calls window] vsplit                                    | s
+[calls window] split                                     | i
+
 
 ## LSP
 GoTo symbol definition                                   | gd
@@ -247,6 +270,11 @@ Decrement number / date or cycle word                    | <C-x>
 ## Zen Mode / Twilight
 Toggle zen mode                                          | <leader>zz
 Toggle Twilight                                          | <leader>za
+
+## Packer / plugin manager
+Update plugins and apply changes                         | :PackerSync
+Remove any disabled or unused plugins                    | :PackerClean
+Show list of installed plugins                           | :PackerStatus
 
 ## Neo-tree
 Show help                                                | ?

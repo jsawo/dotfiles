@@ -9,7 +9,7 @@ vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>F', function() builtin.find_files({ no_ignore = true, prompt_title = 'All Files' }) end, {})
 vim.keymap.set('n', '<leader>h', function() builtin.oldfiles({ prompt_title = 'Recent Files' }) end, {})
-vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>d', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>gr', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
@@ -29,6 +29,7 @@ telescope.setup{
         ['<C-Down>'] = actions.cycle_history_next,
         ['<C-Up>'] = actions.cycle_history_prev,
         ["<c-t>"] = trouble.open_with_trouble,
+        ["<C-h>"] = "which_key",
       },
       n = {
         ["<c-t>"] = trouble.open_with_trouble,

@@ -1,7 +1,8 @@
 -- vim.cmd('colorscheme rose-pine')
 -- vim.cmd('colorscheme dracula')
-require('github-theme').setup()
-vim.cmd('colorscheme github_light')
+-- require('github-theme').setup()
+-- vim.cmd('colorscheme github_light')
+vim.cmd('colorscheme nord')
 
 vim.opt.number = true -- Display absolute line number on the current line only
 vim.opt.relativenumber = true -- Use relative line numbers

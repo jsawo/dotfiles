@@ -272,6 +272,7 @@
     alias php_switch_74='sudo update-alternatives --set php /usr/bin/php7.4'
     alias php_switch_80='sudo update-alternatives --set php /usr/bin/php8.0'
     alias php_switch_81='sudo update-alternatives --set php /usr/bin/php8.1'
+    alias php_switch_82='sudo update-alternatives --set php /usr/bin/php8.2'
 
     db() (
         if [ $# -eq 0 ]; then

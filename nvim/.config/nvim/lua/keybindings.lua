@@ -54,5 +54,4 @@ vim.keymap.set("v", "Y", "myY`y")
 
 -- Quickly save file
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
-vim.keymap.set("i", "<leader>w", "<cmd>w<CR>")
 

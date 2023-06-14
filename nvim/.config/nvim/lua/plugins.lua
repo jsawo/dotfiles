@@ -58,6 +58,8 @@ return require('packer').startup(function(use)
     use 'RRethy/nvim-treesitter-textsubjects' -- text subjects for treesitter
     use 'nvim-treesitter/nvim-treesitter-textobjects' -- text objects for treesitter
 
+    use {'phaazon/hop.nvim', branch = 'v2'}
+
     -- Indent Tools
     use {'arsham/indent-tools.nvim', requires = { 'arsham/arshlib.nvim' },
         config = function() require('indent-tools').config({}) end,

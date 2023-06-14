@@ -142,6 +142,11 @@ Open color picker (with cursor on a color)               | <leader>cp
 Convert color between HEX, RGB and HSL (in picker)       | <leader>ch
 Increase / Decrease value by 5                           | U / O
 
+## Hop - jump - EasyMotion
+Hop to word                                              | <M-;>
+Hop to pattern                                           | <M-'>
+Cancel hop                                               | <space>
+
 ## Indent tools
 Next / prev line with the same indent                    | ]i / [i 
 Delete / change / select in indent                       | dii / cii / vii
@@ -271,7 +276,7 @@ Decrement number / date or cycle word                    | <C-x>
 Toggle zen mode                                          | <leader>zz
 Toggle Twilight                                          | <leader>za
 
-## Packer / plugin manager
+## Packer - plugin manager
 Update plugins and apply changes                         | :PackerSync
 Remove any disabled or unused plugins                    | :PackerClean
 Show list of installed plugins                           | :PackerStatus

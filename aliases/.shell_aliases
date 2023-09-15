@@ -84,6 +84,8 @@
     alias pe='./vendor/bin/pest'
     alias pef='./vendor/bin/pest --filter'
     alias pec='./vendor/bin/pest --coverage'
+    alias pefw='pest_filter_watch'
+    pest_filter_watch() ( watch -cn 1 "./vendor/bin/pest --colors=always --filter \"$*\"" )
 
     alias sail='bash vendor/bin/sail'
     alias s='bash vendor/bin/sail'
@@ -120,16 +122,17 @@
 # Docker {{{
 # ==============================================================================
 
+    alias docker-compose='docker compose'
     alias d='docker'
-    alias dc='docker-compose'
-    alias dcu='docker-compose up'
-    alias dce='docker-compose exec'
-    alias dcea='docker-compose exec app'
+    alias dc='docker compose'
+    alias dcu='docker compose up'
+    alias dce='docker compose exec'
+    alias dcea='docker compose exec app'
     alias dceas='dc_exec_app_su_app'
-    dc_exec_app_su_app() ( docker-compose exec app su app -c "$*" )
+    dc_exec_app_su_app() ( docker compose exec app su app -c "$*" )
     alias dceasa='dceas php artisan'
-    alias dcr='docker-compose run'
-    alias dcrr='docker-compose run --rm -u "$(id -u):$(id -g)"'
+    alias dcr='docker compose run'
+    alias dcrr='docker compose run --rm -u "$(id -u):$(id -g)"'
 
 # }}}
 
@@ -332,8 +335,24 @@
     # quickly check if a given port is being used
     #  use: port 80
     alias port='show_port_info'
-    show_port_info() ( ss -peanut | grep ":$1" | grep LISTEN )
     alias ports='ss -peanut | grep LISTEN'
+    show_port_info() {
+        if [ $# -ne 1 ]; then
+            echo "Usage: show_port_info <port>"
+            return 1
+        fi
+
+        local port="$1"
+        local pid
+
+        pid=$(sudo ss -ltnup "sport = :$port" | awk '/LISTEN/ {print $0}' | grep -oP 'pid=\K\d+' | head -n 1)
+
+        if [ -n "$pid" ]; then
+            ps "$pid" | awk 'NR>1 {print "    PID: "$1, "\nCOMMAND: "substr($0, index($0,$5))}'
+        else
+            echo "No process found listening on port $port."
+        fi
+    }
 
     alias open='system_open'
     system_open() ( xdg-open $* > /dev/null 2>&1 )

@@ -105,3 +105,12 @@ fi
 if [[ $- == *i* && $0 == *bash* && -f ~/scripts/login.sh ]]; then
     ~/scripts/login.sh
 fi
+
+. "$HOME/.cargo/env"
+
+# fnm
+export PATH="/home/jacek/.local/share/fnm:$PATH"
+eval "`fnm env`"
+
+# Created by `pipx` on 2023-07-31 07:44:36
+export PATH="$PATH:/home/jacek/.local/bin"

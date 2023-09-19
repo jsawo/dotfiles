@@ -354,6 +354,17 @@
         fi
     }
 
+    # use yazi to change directory
+    function ya() {
+        tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+        yazi --cwd-file="$tmp"
+        if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            cd -- "$cwd"
+        fi
+        rm -f -- "$tmp"
+    }
+
+
     alias open='system_open'
     system_open() ( xdg-open $* > /dev/null 2>&1 )
 

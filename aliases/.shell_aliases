@@ -229,7 +229,7 @@
 # Sounds and notifications {{{
 # ==============================================================================
 
-    # use: beep [pitch 0-50] [volume .01-1] [length .1-x]
+    # use: beep [pitch 0-50 default: 0] [volume .01-1 default: .3] [length .1-x default: .1]
     beep() ( ~/scripts/beep "$@" )
     # use: tone [1-5]
     tone() ( ~/scripts/tone "$@" )
@@ -237,6 +237,8 @@
     say() ( ~/scripts/say "$@" )
     # use: sayp lorem ipsum
     sayp() ( ~/scripts/sayp "$@" )
+    # use: playsound sound_id
+    playsound() ( ~/scripts/playsound "$@" )
 
     # use: pop "my notification text"
     alias pop='notify-send'

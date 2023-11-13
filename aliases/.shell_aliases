@@ -242,7 +242,7 @@
     alias pop='notify-send'
 
     # use: super-slow-command; b
-    b() ( say 'done'; zenity --info --width=550 --text "DATE: $(date); \n PWD: $(pwd)" & )
+    b() ( say 'done'; zenity --info --width=550 --text "DATE: $(date +"%T %d-%m-%Y") \n PWD: $(pwd)" & )
 
 # }}}
 
@@ -276,6 +276,7 @@
     alias php_switch_80='sudo update-alternatives --set php /usr/bin/php8.0'
     alias php_switch_81='sudo update-alternatives --set php /usr/bin/php8.1'
     alias php_switch_82='sudo update-alternatives --set php /usr/bin/php8.2'
+    alias php_switch_83='sudo update-alternatives --set php /usr/bin/php8.3'
 
     db() (
         if [ $# -eq 0 ]; then
@@ -314,7 +315,9 @@
 # ==============================================================================
 
     alias dudu='ncdu'
+    # print $PATH in a readable format
     alias path='echo -e ${PATH//:/\\n}'
+
     alias now='date +"%T"'
     alias nowtime=now
     alias nowdate='date +"%d-%m-%Y"'
@@ -363,7 +366,6 @@
         fi
         rm -f -- "$tmp"
     }
-
 
     alias open='system_open'
     system_open() ( xdg-open $* > /dev/null 2>&1 )

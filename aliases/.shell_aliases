@@ -94,7 +94,7 @@
     alias sat='bash vendor/bin/sail artisan tinker'
     alias satt='while true; do bash vendor/bin/sail artisan tinker; done'
 
-    alias xd='XDEBUG_TRIGGET=1'
+    alias xd='XDEBUG_TRIGGER=1'
 # }}}
 
 # go {{{

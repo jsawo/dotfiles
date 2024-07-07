@@ -370,6 +370,9 @@
         rm -f -- "$tmp"
     }
 
+    # timewarrior
+    alias tw='timew'
+
     alias open='system_open'
     system_open() ( xdg-open $* > /dev/null 2>&1 )
 

@@ -373,6 +373,8 @@
     # timewarrior
     alias tw='timew'
 
+    alias hmm='h-m-m'
+
     alias open='system_open'
     system_open() ( xdg-open $* > /dev/null 2>&1 )
 

@@ -338,6 +338,9 @@
     # alternative to `cp` using rsync - shows copying progress
     alias cpv='rsync -ah --info=progress2'
 
+    # quickly check memory usage in percent
+    alias mem='free | grep Mem | awk '\''{printf "%.1f\n", $3/$2 * 100.0}'\'''
+
     # quickly check if a given port is being used
     #  use: port 80
     alias port='show_port_info'
@@ -373,7 +376,8 @@
     # timewarrior
     alias tw='timew'
 
-    alias hmm='h-m-m'
+    # mind map
+    alias mm='h-m-m'
 
     alias open='system_open'
     system_open() ( xdg-open $* > /dev/null 2>&1 )

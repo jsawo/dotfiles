@@ -106,3 +106,5 @@ if [[ $- == *i* && $0 == *bash* && -f ~/scripts/login.sh ]]; then
     ~/scripts/login.sh
 fi
 
+HISTIGNORE="$HISTIGNORE:jrnl *"
+HISTIGNORE="$HISTIGNORE:j *"

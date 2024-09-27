@@ -312,6 +312,8 @@
     # quickly serve current directory on port 8000
     alias serve='python -m SimpleHTTPServer'
 
+    alias we='watchexec -c -r --timings --'
+
 # }}}
 
 # Other stuff {{{
